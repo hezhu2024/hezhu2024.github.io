@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMT_detail(Database of First-rinciples Calculations of Mechanical and Thermal Properties of Materials)
+    </title>
+    <link rel="icon" href="./img/title.svg">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+    <!-- <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .material_box {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+        }
+
+        .left_column {
+            /* display: inline-block; */
+            width: 25rem;
+            height: 250rem;
+            margin-left: 0rem;
+            background-color: cornflowerblue;
+        }
+
+        .mid_column {
+            /* display: inline-block; */
+            margin-left: 0rem;
+        }
+
+        .first_calculation_list {
+            height: 5rem;
+            width: 25rem;
+            line-height: 5rem;
+            font-size: 1.875rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-left: 1.25rem;
+        }
+
+        .second_detail {
+            height: 5rem;
+            line-height: 5rem;
+            font-size: 1.875rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-left: 1.25rem;
+        }
+
+        .calculation_list {
+            margin-top: 5rem;
+            width: 62.5rem;
+            margin-left: 0rem;
+
+        }
+
+        .calculation_detail {
+            margin-top: 5rem;
+            width: 68.75rem;
+            margin-left: 0rem;
+
+        }
+
+        .one_column {
+            display: flex;
+            width: 68.75rem;
+            height: 3.75rem;
+            flex-direction: row;
+            justify-content: left;
+            box-shadow: .0625rem .125rem .25rem rgba(0, 0, 0, .1);
+        }
+
+
+        .two_column {
+            display: flex;
+            height: 7.5rem;
+            width: 68.75rem;
+            flex-direction: row;
+            justify-content: left;
+            box-shadow: .0625rem .125rem .25rem rgba(0, 0, 0, .1);
+        }
+
+        .title {
+            text-align: right;
+            line-height: 3.75rem;
+            font-size: 1.5rem;
+            /* font-weight: bold; */
+            font-family: 'Times New Roman', Times, serif;
+            margin-right: 3.125rem;
+
+        }
+
+        .title_two {
+            text-align: right;
+            line-height: 7.5rem;
+            font-size: 1.5rem;
+            /* font-weight: bold; */
+            font-family: 'Times New Roman', Times, serif;
+            margin-right: 3.125rem;
+        }
+
+        .title_three {
+            text-align: left;
+            line-height: 3.75rem;
+            font-size: 1.5rem;
+
+            /* font-weight: bold; */
+            font-family: 'Times New Roman', Times, serif;
+            margin-left: 6.25rem;
+
+
+        }
+
+        /* .MathJax_Display {
+            font-size: 1.25rem;
+        } */
+
+        .content {
+
+            line-height: 3.75rem;
+            text-align: center;
+            font-size: 1.75rem;
+            font-family: 'Courier New', Courier, monospace;
+            margin-left: 3.125rem;
+        }
+
+        .math {
+            /* line-height: 1.875rem; */
+            text-align: center;
+            font-size: 1.125rem;
+            margin-left: 3.125rem;
+
+        }
+
+        .v_line {
+            /* width: .1875rem; */
+            height: 2.5rem;
+            /* background-color: #888; */
+            border-left-width: .125rem;
+            border-left-style: solid;
+            border-color: #888;
+            margin-top: .625rem;
+            margin-right: 3.125rem;
+            border-radius: .125rem;
+        }
+
+        .vv_line {
+            /* width: .1875rem; */
+            height: 5rem;
+            /* background-color: #888; */
+            border-left-width: .125rem;
+            border-left-style: solid;
+            border-color: #888;
+            margin-top: 1.25rem;
+            margin-right: 3.125rem;
+            border-radius: .125rem;
+        }
+
+        .two_column_first {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .two_column_second {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .elastic_potential_energy_math1 {
+            box-shadow: 0rem -0.0625rem 0rem 0rem rgba(0, 0, 0, .3) inset;
+
+        }
+
+        .relaxation_time_math1 {
+            box-shadow: 0rem -0.0625rem 0rem 0rem rgba(0, 0, 0, .3) inset;
+        }
+
+        /* detail_right */
+        .effective_mass_detail {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            height: 25rem;
+            /* box-shadow: 0rem .125rem .25rem rgba(0, 0, 0, .3); */
+            /* background-color: #888; */
+        }
+
+        #emsvg {
+            width: 50rem;
+            height: 25rem;
+            margin-left: 3.125rem;
+            /* background-color: aqua; */
+        }
+
+        #emsvg_tem {
+            left: 3.125rem;
+            top: 3.125rem;
+            width: 43.75rem;
+            height: 18.75rem;
+            /* overflow: hidden; */
+        }
+
+        .effective_mass_cbm_vbm {
+
+            width: 12.5rem;
+        }
+
+        .m_cbm {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            flex-wrap: wrap;
+            overflow: auto;
+            margin-top: 3.125rem;
+            margin-left: 3.125rem;
+            height: 7.5rem;
+            font-size: 1.75rem;
+            font-family: 'Courier New', Courier, monospace;
+            border: .125rem solid rgba(0, 0, 0, .5);
+
+        }
+
+        .m_vbm {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            flex-wrap: wrap;
+            overflow: auto;
+            margin-left: 3.125rem;
+            margin-top: 3.75rem;
+            height: 7.5rem;
+            font-size: 1.75rem;
+            font-family: 'Courier New', Courier, monospace;
+            border: .125rem solid rgba(0, 0, 0, .5);
+        }
+
+        .elastic_constant_edpe_detail {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            height: 25rem;
+            /* margin-top: 3.125rem; */
+            /* box-shadow: 0rem .125rem .25rem rgba(0, 0, 0, .3); */
+        }
+
+        #ecsvg {
+            width: 31.25rem;
+            height: 25rem;
+            margin-left: 1.25rem;
+            /* margin-right: 3.125rem; */
+        }
+
+        #evsvg {
+            width: 31.25rem;
+            height: 25rem;
+            margin-right: 1.25rem;
+        }
+
+        .pf_seebeck_sigma_kappa_n .zt_be_n {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            height: 25rem;
+            /* margin-top: 3.125rem; */
+            /* box-shadow: 0rem .125rem .25rem rgba(0, 0, 0, .3); */
+        }
+
+        /* detail left */
+        .detail_effective_mass {
+            height: 25rem;
+            /* line-height: 25rem; */
+        }
+
+        .detail_elastic_constant_dpe {
+            margin-top: 15.625rem;
+            height: 25rem;
+            /* line-height: 25rem; */
+        }
+
+        .detail_pf_kappa {
+            margin-top: 12.5rem;
+            margin-bottom: 15.625rem;
+            height: 25rem;
+            /* line-height: 25rem; */
+        }
+
+        .statement {
+            /* height: 3.125rem; */
+            width: 68.75rem;
+            margin-top: 3.125rem;
+            background-color: white;
+            line-height: 3.125rem;
+            font-size: 1.25rem;
+            text-indent: 2em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* box-shadow: 0rem -0.125rem .25rem rgba(0, 0, 0, .3); */
+        }
+
+        /* x_标签 */
+        .x_scale {
+            font-size: 20;
+            text-anchor: middle;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .dos_label {
+            font-size: 20;
+            text-anchor: middle;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #tip {
+            position: fixed;
+            margin-left: .625rem;
+            margin-top: 1.875rem;
+            line-height: 1.375rem;
+            background-color: rgba(0, 0, 0, .6);
+            padding: .25rem .5625rem;
+            font-size: .75rem;
+            color: #fff;
+            border-radius: .1875rem;
+            pointer-events: none;
+            display: none;
+        }
+
+        .y_title {
+            display: block;
+            font-size: 1.25rem;
+            font-family: 'Times New Roman', Times, serif;
+            fill: black;
+            text-anchor: middle;
+            writing-mode: vertical-rl;
+            rotate: -180deg;
+        }
+
+        .x_title {
+            display: block;
+            font-size: 1.25rem;
+            font-family: 'Times New Roman', Times, serif;
+            fill: black;
+            text-anchor: middle;
+        }
+
+        .effective_mass_cbm_vbm p {
+            display: block;
+            height: 1.875rem;
+            width: 6.25rem;
+            font-size: 1.25rem !important;
+        }
+
+        .chose_vector {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            height: 3.125rem;
+            width: 1100;
+        }
+
+        .vector_xx {
+            height: 3.125rem;
+            width: 3.125rem;
+            line-height: 3.125rem;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.25rem;
+            margin-left: 13.125rem;
+            margin-right: 6.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .vector_yy {
+            height: 3.125rem;
+            width: 3.125rem;
+            line-height: 3.125rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.25rem;
+            margin: 0rem 6.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .vector_zz {
+            height: 3.125rem;
+            width: 3.125rem;
+            line-height: 3.125rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.25rem;
+            margin: 0rem 6.25rem;
+            margin-top: 1.25rem;
+
+        }
+
+        .vector_p {
+            height: 3.125rem;
+            width: 9.375rem;
+            line-height: 3.125rem;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.25rem;
+            margin-left: 13.125rem;
+            margin-right: 12.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .vector_n {
+            height: 3.125rem;
+            width: 9.375rem;
+            line-height: 3.125rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.25rem;
+            margin: 0rem 6.25rem;
+            margin-top: 1.25rem;
+
+        }
+
+        .detail_column {
+            box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, .3);
+        }
+
+        /* .vector_xx:hover {
+      background-color: brown;
+    }
+
+    .vector_yy:hover {
+      background-color: brown;
+    }
+
+    .vector_zz:hover {
+      background-color: brown;
+    } */
+    </style>
+
+</head>
+
+<body>
+    <div id="tip"></div>
+    <div class="material_box">
+        <div class="left_column">
+            <div class="first_calculation_list">1. Result List</div>
+            <div class="title_calculation_list">
+                <div class="chemical_name_title title">Chemical Name :</div>
+                <div class="space_group_title title">Space Group :</div>
+                <div class="mp_index_title title">mp-index :</div>
+                <div class="bandgap_title title">Bandgap :</div>
+                <div class="fermi_title title">Fermi :</div>
+                <div class="elastic_constant_title title">Elastic Constant :</div>
+                <div class="elastic_potential_energy_title title_two">Elastic Potential Energy :</div>
+                <div class="effective_mass_title title">Effective Mass :</div>
+                <div class="relaxation_time_title title_two">Relaxation Time :</div>
+                <div class="shear_modulus_title title">Shear Modulus :</div>
+                <div class="bulk_modulus_title title">Bulk Modulus :</div>
+                <div class="young_modulus_title title">Young's Modulus :</div>
+                <div class="poisson_ratio_title title">Poisson's Ratio :</div>
+                <div class="debye_temperature_title title">Debye Temperature :</div>
+                <div class="greene_parameter_title title">Greene Parameter :</div>
+                <div class="lattice_thermal_conductivity_title title">Lattice Thermal Conductivity :</div>
+                <div class="seebeck_max_title title">Seebeck max :</div>
+                <div class="electronic_conductivity_average_title title">Electronic Conductivity :</div>
+                <div class="power_factor_max_title title">Power Factor max :</div>
+                <div class="electronic_thermal_conductivity_average_title title">Electronic Thermal Conductivity :</div>
+                <div class="BE_title title">BE max :</div>
+                <div class="ZT_title title">ZT max :</div>
+                <div class="title"></div>
+            </div>
+            <div class="second_detail">2. Result Detail</div>
+            <div class="detail_effective_mass title_three">2.1 Effective Mass: $$m^* = \frac{\hbar^2}{\partial^2
+                E/\partial k^2}$$</div>
+            <div class="detail_elastic_constant_dpe title_three">2.2 Elastic Constant and Elastic Potential Energy:
+                $$C_x^{3D} = \frac{1}{V_0}\;\frac{\partial^2 E}{\partial\left(\Delta{a_x}/a_x\right)^2}$$ $$E_{DPx} =
+                {\Delta}V_i/\left(\Delta{a_x}/a_x\right)$$</div>
+            <div class="detail_pf_kappa title_three">2.3 Seebeck, Conductivity, Power Factor, Electronic Thermal
+                Conductivity:$$S,\sigma, S^2\sigma,
+                \kappa_e$$</div>
+            <div class="detail_zt_be title_three">2.4
+                ZT and BE: $$ZT=\frac{S^2\sigma T}{\kappa_l + \kappa_e}$$
+                $$B_ET/\kappa_l$$</div>
+        </div>
+        <div class="mid_column">
+
+            <div class="calculation_list">
+                <div class="chemical_name one_column">
+                    <script src="js/sample.js"></script>
+
+
+                    <script>
+
+                        const data_material = data_chosed_get[0]
+
+                        let simple_name_tem = ''
+                        data_material.simple_name.forEach((i, index_i) => {
+                            simple_name_tem += i
+                        })
+                        document.write(`
+                        <span class="chemical_name_content content">${simple_name_tem}</span>
+                        `)
+                    </script>
+
+                </div>
+                <div class="space_group one_column">
+                    <!-- <span class=" title"></span> -->
+                    <script>
+                        document.write(`<span class="space_group_content content math">${data_material.space_group}</span>`)
+                    </script>
+
+                </div>
+                <div class="mp_index one_column">
+                    <!-- <span class=" title"></span> -->
+                    <script>
+                        document.write(`<span class="mp_index_content content">${data_material.id}</span>`)
+                    </script>
+
+                </div>
+                <div class="bandgap one_column">
+                    <!-- <span class=" title"></span> -->
+                    <script>
+                        document.write(`<span class="bandgap_content content">${data_material.bandgap.toFixed(2)}eV</span>`)
+                    </script>
+
+                </div>
+                <div class="fermi one_column">
+                    <!-- <span class=" title"></span> -->
+                    <script>
+                        document.write(`<span class="fermi_content content">${data_material.fermi.toFixed(2)}eV</span>`)
+                    </script>
+
+                </div>
+                <div class="elastic_constant one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="elastic_constant_math math">$$C_{xx}\;\;\;C_{yy}\;\;\;C_{zz}\;\;\;(J/m^3):$$</span>
+                    <!-- <script>
+                        document.write(`<span class="elastic_constant_content content">${data_material.c_ec[0]} ${data_material.c_ec[1]} ${data_material.c_ec[2]}</span>`)
+                    </script> -->
+                    <script>
+                        document.write(`<span class="elastic_constant_content content">${data_material.c_ec[0].toExponential(1)} ${data_material.c_ec[1].toExponential(1)} ${data_material.c_ec[2].toExponential(1)}</span>`)
+                    </script>
+                </div>
+                <div class="elastic_potential_energy two_column">
+                    <!-- <span class=""></span> -->
+                    <!-- <span class="vv_line"></span> -->
+                    <div class="two_column_first">
+                        <span
+                            class="elastic_potential_energy_math1 math">$$E_{dpxx}(e)\;\;\;E_{dpyy}(e)\;\;\;E_{dpzz}(e)\;\;\;(eV):$$</span>
+                        <span
+                            class="elastic_potential_energy_math2 math">$$E_{dpxx}(h)\;\;\;E_{dpyy}(h)\;\;\;E_{dpzz}(h)\;\;\;(eV):$$</span>
+                    </div>
+                    <div class="two_column_second">
+                        <script>
+                            document.write(`<span class="elastic_potential_energy_content1 content">${data_material.e_dpe[0][0].toFixed(2)} ${data_material.e_dpe[0][1].toFixed(2)} ${data_material.e_dpe[0][2].toFixed(2)}</span>`)
+                        </script>
+
+                        <script>
+                            document.write(`<span class="elastic_potential_energy_content2 content">${data_material.e_dpe[1][0].toFixed(2)} ${data_material.e_dpe[1][1].toFixed(2)} ${data_material.e_dpe[1][2].toFixed(2)}</span>`)
+                        </script>
+
+                    </div>
+
+                </div>
+                <div class="effective_mass one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="effective_mass_math math">$$m^*(e)\;\;\;m^*(h)\;\;\;:$$</span>
+                    <script>
+                        document.write(`<span class="effective_mass_content content">${Math.max(data_material.m_e_cbm).toFixed(2)}me ${Math.max(data_material.m_e_vbm).toFixed(2)}me</span>`)
+                    </script>
+
+                </div>
+                <div class="relaxation_time two_column">
+                    <!-- <span class=""></span> -->
+                    <!-- <span class="vv_line"></span> -->
+                    <div class="two_column_first">
+                        <span
+                            class="relaxation_time_math1 math">$$\tau_{xx}(e)\;\;\;\tau_{yy}(e)\;\;\;\tau_{zz}(e)\;\;\;(s):$$</span>
+                        <span
+                            class="relaxation_time_math2 math">$$\tau_{xx}(h)\;\;\;\tau_{yy}(h)\;\;\;\tau_{zz}(h)\;\;\;(s):$$</span>
+                    </div>
+                    <div class="two_column_second">
+                        <script>
+                            document.write(`<span class="relaxation_time_content1 content">${data_material.tau[0][0].toExponential(1)} ${data_material.tau[0][1].toExponential(1)} ${data_material.tau[0][2].toExponential(1)}</span>`)
+                        </script>
+
+                        <!-- <span class="relaxation_time_content1 content">1e-14 1e-14 1e-14</span> -->
+                        <script>
+                            document.write(`<span class="relaxation_time_content1 content">${data_material.tau[1][0].toExponential(1)} ${data_material.tau[1][1].toExponential(1)} ${data_material.tau[1][2].toExponential(1)}</span>`)
+                        </script>
+                        <!-- <span class="relaxation_time_content1 content">1e-14 1e-14 1e-14</span> -->
+                    </div>
+
+
+                </div>
+                <div class="shear_modulus one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="shear_modulus_math math">$$G_v\;\;\;G_r\;\;\;G_h\;\;\;(GPa):$$</span>
+                    <script>
+                        document.write(`<span class="shear_modulus_content content">${data_material.shear_modulus[0].toFixed(2)} ${data_material.shear_modulus[1].toFixed(2)} ${data_material.shear_modulus[2].toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="bulk_modulus one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="bulk_modulus_math math">$$B_v\;\;\;B_r\;\;\;B_h\;\;\;(GPa):$$</span>
+                    <script>
+                        document.write(`<span class="bulk_modulus_content content">${data_material.bulk_modulus[0].toFixed(2)} ${data_material.bulk_modulus[1].toFixed(2)} ${data_material.bulk_modulus[2].toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="young_modulus one_column">
+                    <!-- <span class="title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="young_modulus_math math">$$E_{ym}\;\;\;(GPa):$$</span>
+                    <script>
+                        document.write(`<span class="young_modulus_content content">${data_material.young_modulus.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="poisson_ratio one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="poisson_ratio_math math">$$\gamma_p\;\;\;:$$</span>
+                    <script>
+                        document.write(`<span class="poisson_ratio_content content">${data_material.poisson_ratio.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="debye_temperature one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="debye_temperature_math math">$$\theta_D\;\;\;(K):$$</span>
+                    <script>
+                        document.write(`<span class="debye_temperature_content content">${data_material.debye_temperature.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="greene_parameter one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="greene_parameter_math math">$$\gamma\;\;\;:$$</span>
+                    <script>
+                        document.write(`<span class="greene_parameter_content content">${data_material.greene_parameter.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="lattice_thermal_conductivity one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="lattice_thermal_conductivity_math math">$$\kappa_l\;\;\;(W/(mK)):$$</span>
+                    <script>
+                        document.write(`<span class="lattice_thermal_conductivity_content content">${data_material.kl.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="seebeck_max one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="seebeck_max_math math">$$S_{max}\;\;\;(\mu{V}/K):$$</span>
+                    <script>
+                        document.write(`<span class="seebeck_max_content content">${data_material.seebeck_max.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="electronic_conductivity_average one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="electronic_conductivity_average_math math">$$\sigma_{max}\;\;\;(kS/m):$$</span>
+                    <script>
+                        document.write(`<span class="electronic_conductivity_average_content content">${data_material.sigma_max.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="power_factor_max one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="power_factor_max_math math">$$PF_{max}\;\;\;(W/(mK^2)):$$</span>
+                    <script>
+                        document.write(`<span class="power_factor_max_content content">${data_material.pf_max.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="electronic_thermal_conductivity_average one_column">
+                    <!-- <span class=" title"></span> -->
+                    <!-- <span class="v_line"></span> -->
+                    <span class="electronic_thermal_conductivity_average_math math">$$\kappa_e\;\;\;(W/(mK^2)):$$</span>
+                    <script>
+                        document.write(`<span class="electronic_thermal_conductivity_average_content content">${data_material.ke_max.toFixed(2)}</span>`)
+                    </script>
+                </div>
+                <div class="BE one_column">
+                    <!-- <span class=" title"></span> -->
+                    <script>
+                        document.write(`<span class="BE_content content">${data_material.be_max.toFixed(8)}</span>`)
+                    </script>
+                </div>
+                <div class="ZT one_column">
+                    <!-- <span class=" title"></span> -->
+                    <script>
+                        document.write(`<span class="ZT_content content">${data_material.zt_max.toFixed(8)}</span>`)
+                    </script>
+                </div>
+
+            </div>
+            <div class="calculation_detail">
+
+                <div class="detail_column">
+                    <div class="statement">
+                        Obtain the effective mass of the semiconductor valence band and conduction band through the
+                        left-hand formula m *, and the effective mass of the metal is automatically set to 0 by the
+                        program
+                        (the actual effective mass of the metal should be much larger than that of the semiconductor).
+                        For
+                        the convenience of fast browser operation, the following energy band has a k-path step size of
+                        0.1,
+                        but the above physical quantity results come from the energy band with a step size of 0.005
+                        angstroms, ensuring sufficient convergence.
+                    </div>
+                    <div class="effective_mass_detail">
+                        <svg id="emsvg">
+                            <!-- 图框 -->
+                            <svg id="emsvg_tem">
+                            </svg>
+
+                        </svg>
+                        <!-- band图 -->
+                        <script>
+                            // const data_material = JSON.parse(localStorage.getItem("myData"))
+                            // 获取对应svg
+                            const emsvg = document.querySelector('#emsvg')
+                            const emsvg_tem = document.querySelector('#emsvg_tem')
+                            // 映射xy
+                            function remake_energy_x(x, x_min, x_max) {
+                                return 50 + 500 * (x - x_min) / (x_max - x_min)
+                            }
+
+                            function remake_y(x, x_min, x_max) {
+                                return 400 - (50 + 300 * (x - x_min) / (x_max - x_min))
+                            }
+
+                            // xy刻度
+                            function make_scale_xy(x) {
+                                // 得到xy的刻度
+                                let y = []
+                                for (let i = 0; i < 5; i++) {
+                                    if (i != 4) {
+                                        y.push(Number(i * (x[1] - x[0]) / 4 + x[0]).toFixed(2))
+                                    }
+                                    else {
+                                        y.push(Number(x[1]).toFixed(2))
+                                    }
+
+                                }
+                                return y
+                            }
+
+                            // 随机器
+                            function get_random(N, M) {
+                                return Math.floor(Math.random() * (M - N + 1)) + N
+                            }
+                            function get_random_color(flag) {
+                                if (flag) {
+                                    // 16进制
+                                    let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+                                    tem = '#'
+                                    for (let i = 0; i < 6; i++) {
+                                        tem += arr[get_random(0, 15)]
+
+                                    }
+                                    console.log(tem)
+                                    return tem
+                                }
+                                else {
+                                    // rgb
+                                    return `rgb(${get_random(0, 255)},${get_random(0, 255)},${get_random(0, 255)})`
+                                }
+                                // rgb格式
+
+                            }
+
+                            // 得到band对应的svg路径
+                            function get_path(x, y) {
+                                let path = []
+                                for (let i = 0; i < y.length; i++) {
+                                    let tem = ''
+                                    for (let j = 0; j < x.length; j++) {
+                                        if (j == 0) {
+                                            tem += `M ${remake_energy_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                        }
+                                        else {
+                                            // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                            tem += `S ${(remake_energy_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1]) + remake_energy_x(x[j - 1], data_material.l_min_max[0], data_material.l_min_max[1])) / 2} ${(remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1]) + remake_y(y[i][j - 1], data_material.energy_min_max[0], data_material.energy_min_max[1])) / 2} ${remake_energy_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                        }
+                                    }
+                                    tem = '<path d="' + tem + `" stroke=${get_random_color(false)} fill="transparent" />`
+                                    path.push(tem)
+                                    // console.log(tem)
+                                }
+                                return path
+                            }
+
+                            // band图路径
+                            let energy_svg_path = get_path(data_material.l, data_material.energy)
+                            for (let i = 0; i < energy_svg_path.length; i++) {
+                                emsvg.innerHTML += energy_svg_path[i]
+                            }
+                            emsvg.innerHTML += `<line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="50" y1="50" x2="750" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="750" y1="50" x2="750" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="50" y1="350" x2="750" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="550" y1="50" x2="550" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                            // // 散点图
+                            // for (let i = 0; i < data_material.energy.length; i++) {
+                            //     for (let j = 0; j < data_material.l.length; j++) {
+                            //         emsvg.innerHTML += `<circle id="energy_${i}_${j}" class="energy_circle" cx="${remake_energy_x(data_material.l[j], data_material.l_min_max[0], data_material.l_min_max[1])}" cy="${remake_y(data_material.energy[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+                            //     }
+                            // }
+                            // 散点图
+                            // let energymin = Math.min(data_material.energy.flat(Infinity))
+                            // let energymax = Math.max(data_material.energy.flat(Infinity))
+                            for (let i = 0; i < data_material.energy.length; i++) {
+                                for (let j = 0; j < data_material.l.length; j++) {
+                                    emsvg.innerHTML += `<circle id="energy_${i}_${j}" class="energy_circle" cx="${remake_energy_x(data_material.l[j], data_material.l_min_max[0], data_material.l_min_max[1])}" cy="${remake_y(data_material.energy[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+                                }
+                            }
+                            // // cbn,vbm点图
+                            // for (let i = 0; i < data_material.cbm.length; i++) {
+                            //   emsvg.innerHTML += `<circle id="cbm_${i}" cx="${remake_x(data_material.cbm[i][0], data_material.l_min_max[0], data_material.l_min_max[1])}" cy="${remake_y(data_material.cbm[i][2], data_material.energy_min_max[0], data_material.energy_min_max[1])}" r="5.0" stroke="#888" stroke-width="S" fill="#888" />`
+                            // }
+                            // for (let i = 0; i < data_material.vbm.length; i++) {
+                            //   emsvg.innerHTML += `<circle id="vbm_${i}" cx="${remake_x(data_material.vbm[i][0], data_material.l_min_max[0], data_material.l_min_max[1])}" cy="${remake_y(data_material.vbm[i][2], data_material.energy_min_max[0], data_material.energy_min_max[1])}" r="5.0" stroke="#888" stroke-width="S" fill="#888" />`
+                            // }
+
+
+                            // 图框
+
+                            // x刻度
+                            for (let i = 0; i < data_material.l_label.length; i++) {
+                                emsvg.innerHTML += `<line x1="${remake_energy_x(data_material.l_label[i], data_material.l_label[0], data_material.l_label[data_material.l_label.length - 1])}" y1="350" x2="${remake_energy_x(data_material.l_label[i], data_material.l_label[0], data_material.l_label[data_material.l_label.length - 1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                emsvg.innerHTML += `<text x="${remake_energy_x(data_material.l_label[i], data_material.l_label[0], data_material.l_label[data_material.l_label.length - 1])}" y="370" class="x_scale">${data_material.highpoints[i]}</text>`
+                            }
+                            // y刻度
+                            for (let i = 0; i < 5; i++) {
+                                // console.log(make_scale_xy(data_material.energy_min_max)[i])
+                                emsvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.energy_min_max)[i], data_material.energy_min_max[0], data_material.energy_min_max[1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.energy_min_max)[i], data_material.energy_min_max[0], data_material.energy_min_max[1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                emsvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.energy_min_max)[i], data_material.energy_min_max[0], data_material.energy_min_max[1])}" class="x_scale">${make_scale_xy(data_material.energy_min_max)[i]} </text>`
+                            }
+                            // 显示xy轴标题
+                            emsvg.innerHTML += ' <text class="y_title" x=".625rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">Energy (eV)</text>'
+
+
+
+
+
+
+
+
+
+                        </script>
+                        <!-- dos  -->
+                        <script>
+                            // console.log(data_material.dos_x)
+                            function remake_dos_x(x, x_min, x_max) {
+                                return 550 + 100 * (x - x_min) / (x_max - x_min)
+                            }
+                            function get_dos_path(x, y) {
+                                let path = []
+                                let dos_label_color = []
+                                for (let i = 0; i < x.length; i++) {
+                                    let tem = ''
+                                    for (let j = 0; j < y.length; j++) {
+                                        if (j == 0) {
+                                            tem += `M ${remake_dos_x(x[i][j], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1])} ${remake_y(y[j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                        }
+                                        else {
+                                            // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                            tem += `S ${(remake_dos_x(x[i][j], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1]) + remake_dos_x(x[i][j - 1], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1])) / 2} ${(remake_y(y[j], data_material.energy_min_max[0], data_material.energy_min_max[1]) + remake_y(y[j - 1], data_material.energy_min_max[0], data_material.energy_min_max[1])) / 2} ${remake_dos_x(x[i][j], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1])} ${remake_y(y[j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                        }
+                                    }
+
+                                    let doscolor = get_random_color(false)
+                                    dos_label_color.push(doscolor)
+                                    tem_path = '<path d="' + tem + `" stroke=${doscolor} fill="transparent" />`
+                                    path.push(tem_path)
+                                    // console.log(tem)
+                                }
+                                return [path, dos_label_color]
+                            }
+                            // dos曲线
+
+                            let dos_svg_path = get_dos_path(data_material.dos_y, data_material.dos_x)
+                            for (let i = 0; i < dos_svg_path[0].length; i++) {
+                                // console.log(dos_svg_path[0])
+                                emsvg.innerHTML += dos_svg_path[0][i]
+                            }
+                            // dos散点
+                            // for (let i = 0; i < data_material.dos_y.length; i++) {
+                            //     // console.log(data_material.dos_y)
+                            //     for (let j = 0; j < data_material.dos_x.length; j++) {
+                            //         // console.log("!!")
+                            //         emsvg.innerHTML += `<circle id="dos_${i}_${j}" cx="${remake_dos_x(data_material.dos_y[i][j], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1])}" cy="${remake_y(data_material.dos_x[j], data_material.energy_min_max[0], data_material.energy_min_max[1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+                            //     }
+                            // }
+                            // dos刻度
+                            emsvg.innerHTML += `<line x1="${remake_dos_x(data_material.dos_y_min_max[1], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1])}" y1="350" x2="${remake_dos_x(data_material.dos_y_min_max[1], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                            emsvg.innerHTML += `<text x="${remake_dos_x(data_material.dos_y_min_max[1], data_material.dos_y_min_max[0], data_material.dos_y_min_max[1])}" y="370" class="x_scale">${data_material.dos_y_min_max[1].toFixed(1)}</text>`
+
+                            // dos label
+                            emsvg.innerHTML += `<rect x="670" y="60" height="${30 * data_material.dos_y.length}" width="60" style="stroke: #888; fill: transparent"/>`
+                            for (let i = 0; i < data_material.element.length; i++) {
+                                emsvg.innerHTML += `<text x="680" y="${80 + 30 * i}" class="dos_label">${data_material.element[i]}</text>`
+                                emsvg.innerHTML += `<line x1="695" y1="${75 + 30 * i}" x2="720" y2="${75 + 30 * i}" style="stroke: ${dos_svg_path[1][i]}; stroke-width:S"/>`
+                            }
+                        </script>
+
+
+
+                        <div class="effective_mass_cbm_vbm">
+                            <div class="m_cbm">
+                                <p>m*(cbm):</p>
+                            </div>
+                            <div class="m_vbm">
+                                <p>m*(vbm):</p>
+                            </div>
+                        </div>
+
+
+
+                        <script>
+                            // m*具体数值
+                            const m_cbm = document.querySelector('.m_cbm')
+                            const m_vbm = document.querySelector('.m_vbm')
+                            for (let i = 0; i < data_material.m_e_cbm.length; i++) {
+                                m_cbm.innerHTML += `<p class="m_cbm_${i} m_cbm_value" >${data_material.m_e_cbm[i]}me</p>`
+                            }
+                            for (let i = 0; i < data_material.m_e_vbm.length; i++) {
+                                m_vbm.innerHTML += `<p class="m_vbm_${i} m_vbm_value">${Math.abs(data_material.m_e_vbm[i])}me</p>`
+                            }
+                            // // m*与能带的交互响应
+                            // // cbm
+                            // const m_e_cbm_value = document.querySelectorAll('.m_cbm_value')
+                            // for (let i = 0; i < m_e_cbm_value.length; i++) {
+                            //     const m_e_color = get_random_color(true)
+                            //     m_e_cbm_value[i].addEventListener('mouseover', function () {
+                            //         for (let j = 0; j < data_material.m_e_cbm_data[0][0].length; j++) {
+
+                            //             emsvg.innerHTML += `<circle class="m_e_data_value" cx="${remake_energy_x(data_material.m_e_cbm_data[i][0][j], data_material.l_min_max[0], data_material.l_min_max[1])}" cy="${remake_y(data_material.m_e_cbm_data[i][1][j], data_material.energy_min_max[0], data_material.energy_min_max[1])}" r="4.0" stroke=${m_e_color} stroke-width="S" fill=${m_e_color} />`
+
+                            //         }
+
+                            //     })
+                            //     m_e_cbm_value[i].addEventListener('mouseout', function () {
+                            //         const m_e_data_value = document.querySelectorAll('.m_e_data_value')
+                            //         for (let i = 0; i < m_e_data_value.length; i++) {
+                            //             m_e_data_value[i].parentNodeNaNpxoveChild(m_e_data_value[i])
+
+                            //         }
+                            //     })
+
+
+                            // }
+                            // // vbm
+                            // const m_e_vbm_value = document.querySelectorAll('.m_vbm_value')
+                            // for (let i = 0; i < m_e_vbm_value.length; i++) {
+                            //     const m_e_color = get_random_color(true)
+                            //     m_e_vbm_value[i].addEventListener('mouseover', function () {
+                            //         for (let j = 0; j < data_material.m_e_vbm_data[0][0].length; j++) {
+
+                            //             emsvg.innerHTML += `<circle class="m_e_data_value" cx="${remake_energy_x(data_material.m_e_vbm_data[i][0][j], data_material.l_min_max[0], data_material.l_min_max[1])}" cy="${remake_y(data_material.m_e_vbm_data[i][1][j], data_material.energy_min_max[0], data_material.energy_min_max[1])}" r="4.0" stroke=${m_e_color} stroke-width="S" fill=${m_e_color} />`
+
+                            //         }
+
+                            //     })
+                            //     m_e_vbm_value[i].addEventListener('mouseout', function () {
+                            //         const m_e_data_value = document.querySelectorAll('.m_e_data_value')
+                            //         for (let i = 0; i < m_e_data_value.length; i++) {
+                            //             m_e_data_value[i].parentNodeNaNpxoveChild(m_e_data_value[i])
+
+                            //         }
+                            //     })
+
+
+                            // }
+                            // 点悬停显示对应能量值
+                            const energy_points_event = document.querySelectorAll('.energy_circle')
+                            // console.log(energy_points_event)
+                            const tip = document.querySelector('#tip')
+                            // console.log(tip)
+                            for (let i = 0; i < data_material.energy.length; i++) {
+                                for (let j = 0; j < data_material.l.length; j++) {
+                                    // console.log(energy_points_event[i * data_material.l.length + j])
+                                    energy_points_event[i * data_material.l.length + j].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'block'
+                                        tip.style.left = `${clientX - 20}px`
+                                        tip.style.top = `${clientY - 70}px`
+                                        tip.innerHTML = `${data_material.energy[i][j]}ev`
+                                    })
+                                    energy_points_event[i * data_material.l.length + j].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'none'
+                                        // tip.style.left = `${clientX}px`
+                                        // tip.style.top = `${clientY}px`
+                                        // tip.innerHTML = this.cx.nodeValue
+                                    })
+                                }
+                            }
+                        </script>
+                    </div>
+
+                </div>
+                <div class="detail_column">
+                    <div class="statement">The formulas for elastic constant and elastic potential energy are derived
+                        from
+                        the theory of deformation potential, and the fitting results in each direction are shown in the
+                        following figure.</div>
+                    <div class="chose_vector">
+                        <button class="vector_xx " id="vector">xx</button>
+                        <button class="vector_yy " id="vector">yy</button>
+                        <button class="vector_zz " id="vector">zz</button>
+                    </div>
+                    <div class="elastic_constant_edpe_detail">
+
+                        <svg id="ecsvg" class="edp_ec_svg">
+
+                        </svg>
+
+
+                        <svg id="evsvg" class="edp_ev_svg">
+
+                        </svg>
+                        <script>
+                            // vector控制
+                            const vector = document.querySelectorAll('#vector')
+                            const ecsvg = document.querySelector('.edp_ec_svg')
+                            const evsvg = document.querySelector('.edp_ev_svg')
+                            const xyz_color = vector[0].style.backgroundColor
+                            for (let i = 0; i < 1; i++) {
+                                ecsvg.innerHTML = ''
+                                vector[i].style.backgroundColor = 'brown'
+                                // 映射xy
+                                function remake_x(x, x_min, x_max) {
+                                    return 50 + 400 * (x - x_min) / (x_max - x_min)
+                                }
+
+                                function remake_y(x, x_min, x_max) {
+                                    return 400 - (50 + 300 * (x - x_min) / (x_max - x_min))
+                                }
+
+                                // xy刻度
+                                function make_scale_xy(x) {
+                                    // 得到xy的刻度
+                                    let y = []
+                                    for (let i = 0; i < 5; i++) {
+                                        if (i != 4) {
+                                            y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                        }
+                                        else {
+                                            y.push(Number(x[1]))
+                                        }
+
+                                    }
+                                    return y
+                                }
+
+                                let c_e_dpe_x = [-0.02, -0.01, 0.00, 0.01, 0.02]
+
+                                // 路径plot
+                                function get_ec_path(x, y, i) {
+                                    let path = []
+
+                                    let tem = ''
+                                    for (let j = 0; j < x.length; j++) {
+                                        if (j == 0) {
+                                            tem += `M ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])} `
+                                        }
+                                        else {
+                                            // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                            tem += `S ${(remake_x(x[j], -0.02, 0.02) + remake_x(x[j - 1], -0.02, 0.02)) / 2} ${(remake_y(y[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1]) + remake_y(y[i][j - 1], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])) / 2} ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])} `
+                                        }
+                                    }
+                                    tem = '<path d="' + tem + `" stroke=${get_random_color(false)} fill="transparent" />`
+                                    path.push(tem)
+                                    // console.log(tem)
+
+                                    return path
+                                }
+
+                                // band图路径
+                                let ec_svg_path = get_ec_path(data_material.c_ec_data_fit_x, data_material.c_ec_data_fit, i)
+                                for (let j = 0; j < ec_svg_path.length; j++) {
+                                    ecsvg.innerHTML += ec_svg_path[j]
+                                }
+                                // 散点图
+
+
+                                for (let j = 0; j < c_e_dpe_x.length; j++) {
+
+                                    ecsvg.innerHTML += `<circle class="c_e_data_circle" id="c_e_${j}" cx="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" cy="${remake_y(data_material.c_ec_data[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+
+                                }
+                                // <!-- 图框 -->
+                                ecsvg.innerHTML += `            
+            <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+            <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+            <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+            <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                // x刻度
+                                for (let j = 0; j < c_e_dpe_x.length; j++) {
+                                    ecsvg.innerHTML += `<line x1="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y1="350" x2="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    ecsvg.innerHTML += `<text x="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y="370" class="x_scale">${c_e_dpe_x[j]}</text>`
+
+                                }
+                                for (let j = 0; j < 5; j++) {
+                                    ecsvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.c_ec_data_min_max[i])[j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.c_ec_data_min_max[i])[j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    ecsvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.c_ec_data_min_max[i])[j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" class="x_scale">${make_scale_xy(data_material.c_ec_data_min_max[i])[j].toFixed(2)} </text>`
+                                }
+                                // 显示xy轴标题
+                                ecsvg.innerHTML += ' <text class="y_title" x=".625rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">Energy (eV)</text>'
+                                ecsvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'> \u0394a/a </text>`
+                                // 显示弹性常数数值
+                                ecsvg.innerHTML += `<text class='x_title' x='15.625rem' y='12.5rem'> C = ${data_material.c_ec[i].toExponential(2)} </text>`
+
+
+                                // evsvg
+                                evsvg.innerHTML = ''
+
+                                // 映射xy
+                                function remake_x(x, x_min, x_max) {
+                                    return 50 + 400 * (x - x_min) / (x_max - x_min)
+                                }
+
+                                function remake_y(x, x_min, x_max) {
+                                    return 400 - (50 + 300 * (x - x_min) / (x_max - x_min))
+                                }
+
+                                // xy刻度
+                                function make_scale_xy(x) {
+                                    // 得到xy的刻度
+                                    let y = []
+                                    for (let i = 0; i < 5; i++) {
+                                        if (i != 4) {
+                                            y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                        }
+                                        else {
+                                            y.push(Number(x[1]))
+                                        }
+
+                                    }
+                                    return y
+                                }
+                                // 散点图
+                                let circle_e_dpe_data = []
+                                for (let j = 0; j < c_e_dpe_x.length; j++) {
+
+                                    evsvg.innerHTML += `<circle class="e_dpe_circle" id="e_dpe_0_${j}" cx="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" cy="${remake_y(data_material.e_dpe_data[0][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+                                    evsvg.innerHTML += `<circle class="e_dpe_circle" id="e_dpe_1_${j}" cx="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" cy="${remake_y(data_material.e_dpe_data[1][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+                                    circle_e_dpe_data.push(data_material.e_dpe_data[0][i][j])
+                                    circle_e_dpe_data.push(data_material.e_dpe_data[1][i][j])
+                                }
+                                // <!-- 图框 -->
+                                evsvg.innerHTML += `            
+                                    <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                                    <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                                    <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                                    <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                // 路径plot
+                                function get_ev_path(x, y, i) {
+                                    let path = []
+                                    console.log(i)
+
+                                    for (let k = 0; k < y.length; k++) {
+                                        let tem = ''
+                                        for (let j = 0; j < x.length; j++) {
+                                            if (j == 0) {
+                                                console.log(y)
+                                                console.log(x.length)
+                                                tem += `M ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[k][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])} `
+                                            }
+                                            else {
+                                                // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                                tem += `S ${(remake_x(x[j], -0.02, 0.02) + remake_x(x[j - 1], -0.02, 0.02)) / 2} ${(remake_y(y[k][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1]) + remake_y(y[k][i][j - 1], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])) / 2} ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[k][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])} `
+                                            }
+                                        }
+                                        tem = '<path d="' + tem + `" stroke=${get_random_color(false)} fill="transparent" />`
+                                        path.push(tem)
+
+                                    }
+
+                                    // console.log(tem)
+
+                                    return path
+                                }
+
+                                // band图路径
+                                let ev_svg_path = get_ev_path(data_material.e_dpe_data_fit_x, data_material.e_dpe_data_fit, i)
+                                for (let j = 0; j < ev_svg_path.length; j++) {
+                                    evsvg.innerHTML += ev_svg_path[j]
+                                }
+                                // x刻度
+                                for (let j = 0; j < c_e_dpe_x.length; j++) {
+                                    evsvg.innerHTML += `<line x1="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y1="350" x2="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    evsvg.innerHTML += `<text x="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y="370" class="x_scale">${c_e_dpe_x[j]}</text>`
+
+                                }
+                                for (let j = 0; j < 5; j++) {
+
+                                    evsvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.e_dpe_data_min_max[i])[j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.e_dpe_data_min_max[i])[j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    evsvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.e_dpe_data_min_max[i])[j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" class="x_scale">${make_scale_xy(data_material.e_dpe_data_min_max[i])[j].toFixed(2)} </text>`
+                                }
+                                // 显示xy轴标题
+                                evsvg.innerHTML += ' <text class="y_title" x=".625rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">Energy (eV)</text>'
+                                evsvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'> \u0394a/a </text>`
+                                evsvg.innerHTML += `<text class='x_title' x='15.625rem' y='9.375rem'> Ec = ${data_material.e_dpe[0][i].toFixed(2)} </text>`
+                                evsvg.innerHTML += `<text class='x_title' x='15.625rem' y='15.625rem'> Ev = ${data_material.e_dpe[1][i].toFixed(2)} </text>`
+                                // 给c_e_data e_dpe 添加事件
+                                const c_e_data_event = document.querySelectorAll('.c_e_data_circle')
+                                const e_dpe_event = document.querySelectorAll('.e_dpe_circle')
+
+                                const tip = document.querySelector('#tip')
+
+
+                                for (let k = 0; k < c_e_data_event.length; k++) {
+                                    c_e_data_event[k].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'block'
+                                        tip.style.left = `${clientX - 20}px`
+                                        tip.style.top = `${clientY - 70}px`
+                                        tip.innerHTML = `${data_material.c_ec_data[i][k]}ev`
+                                    })
+                                    c_e_data_event[k].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                        tip.style.display = 'none'
+                                    })
+
+                                }
+                                for (let k = 0; k < e_dpe_event.length; k++) {
+
+                                    e_dpe_event[k].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'block'
+                                        tip.style.left = `${clientX - 20}px`
+                                        tip.style.top = `${clientY - 70}px`
+                                        tip.innerHTML = `${circle_e_dpe_data[k]}ev`
+                                    })
+                                    e_dpe_event[k].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                        tip.style.display = 'none'
+                                    })
+
+                                }
+
+
+
+
+
+
+                            }
+
+
+
+                            for (let i = 0; i < vector.length; i++) {
+                                console.log(i)
+                                vector[i].addEventListener('click', function () {
+
+                                    for (let j = 0; j < vector.length; j++) {
+
+                                        vector[j].style.backgroundColor = xyz_color
+
+                                    }
+                                    ecsvg.innerHTML = ''
+                                    evsvg.innerHTML = ''
+                                    vector[i].style.backgroundColor = 'brown'
+                                    // 映射xy
+                                    function remake_x(x, x_min, x_max) {
+                                        return 50 + 400 * (x - x_min) / (x_max - x_min)
+                                    }
+
+                                    function remake_y(x, x_min, x_max) {
+                                        return 400 - (50 + 300 * (x - x_min) / (x_max - x_min))
+                                    }
+
+                                    // xy刻度
+                                    function make_scale_xy(x) {
+                                        // 得到xy的刻度
+                                        let y = []
+                                        for (let i = 0; i < 5; i++) {
+                                            if (i != 4) {
+                                                y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                            }
+                                            else {
+                                                y.push(Number(x[1]))
+                                            }
+
+                                        }
+                                        return y
+                                    }
+                                    let c_e_dpe_x = [-0.02, -0.01, 0.00, 0.01, 0.02]
+
+                                    // 路径plot
+                                    function get_ec_path(x, y, i) {
+                                        let path = []
+
+                                        let tem = ''
+                                        for (let j = 0; j < x.length; j++) {
+                                            if (j == 0) {
+                                                tem += `M ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])} `
+                                            }
+                                            else {
+                                                // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                                tem += `S ${(remake_x(x[j], -0.02, 0.02) + remake_x(x[j - 1], -0.02, 0.02)) / 2} ${(remake_y(y[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1]) + remake_y(y[i][j - 1], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])) / 2} ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])} `
+                                            }
+                                        }
+                                        tem = '<path d="' + tem + `" stroke=${get_random_color(false)} fill="transparent" />`
+                                        path.push(tem)
+                                        // console.log(tem)
+
+                                        return path
+                                    }
+
+                                    // band图路径
+                                    let ec_svg_path = get_ec_path(data_material.c_ec_data_fit_x, data_material.c_ec_data_fit, i)
+                                    for (let j = 0; j < ec_svg_path.length; j++) {
+                                        ecsvg.innerHTML += ec_svg_path[j]
+                                    }
+                                    // 散点图
+
+                                    for (let j = 0; j < c_e_dpe_x.length; j++) {
+
+                                        ecsvg.innerHTML += `<circle class="c_e_data_circle" id="c_e_${j}" cx="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" cy="${remake_y(data_material.c_ec_data[i][j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+
+
+                                    }
+                                    // <!-- 图框 -->
+                                    ecsvg.innerHTML += `            
+    <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+    <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+    <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+    <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    // x刻度
+                                    for (let j = 0; j < c_e_dpe_x.length; j++) {
+                                        ecsvg.innerHTML += `<line x1="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y1="350" x2="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        ecsvg.innerHTML += `<text x="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y="370" class="x_scale">${c_e_dpe_x[j]}</text>`
+
+                                    }
+                                    for (let j = 0; j < 5; j++) {
+
+                                        ecsvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.c_ec_data_min_max[i])[j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.c_ec_data_min_max[i])[j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        ecsvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.c_ec_data_min_max[i])[j], data_material.c_ec_data_min_max[i][0], data_material.c_ec_data_min_max[i][1])}" class="x_scale">${make_scale_xy(data_material.c_ec_data_min_max[i])[j].toFixed(2)} </text>`
+                                    }
+                                    // 显示xy轴标题
+                                    ecsvg.innerHTML += ' <text class="y_title" x=".625rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">Energy (eV)</text>'
+                                    ecsvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'> \u0394a/a </text>`
+                                    ecsvg.innerHTML += `<text class='x_title' x='15.625rem' y='12.5rem'> C = ${data_material.c_ec[i].toExponential(2)} </text>`
+
+
+                                    // evsvg
+                                    evsvg.innerHTML = ''
+
+                                    // 映射xy
+                                    function remake_x(x, x_min, x_max) {
+                                        return 50 + 400 * (x - x_min) / (x_max - x_min)
+                                    }
+
+                                    function remake_y(x, x_min, x_max) {
+                                        return 400 - (50 + 300 * (x - x_min) / (x_max - x_min))
+                                    }
+
+                                    // xy刻度
+                                    function make_scale_xy(x) {
+                                        // 得到xy的刻度
+                                        let y = []
+                                        for (let i = 0; i < 5; i++) {
+                                            if (i != 4) {
+                                                y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                            }
+                                            else {
+                                                y.push(Number(x[1]))
+                                            }
+
+                                        }
+                                        return y
+                                    }
+
+                                    // 路径plot
+                                    function get_ev_path(x, y, i) {
+                                        let path = []
+
+
+                                        for (let k = 0; k < y.length; k++) {
+                                            let tem = ''
+                                            for (let j = 0; j < x.length; j++) {
+                                                if (j == 0) {
+                                                    tem += `M ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[k][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])} `
+                                                }
+                                                else {
+                                                    // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                                    tem += `S ${(remake_x(x[j], -0.02, 0.02) + remake_x(x[j - 1], -0.02, 0.02)) / 2} ${(remake_y(y[k][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1]) + remake_y(y[k][i][j - 1], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])) / 2} ${remake_x(x[j], -0.02, 0.02)} ${remake_y(y[k][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])} `
+                                                }
+                                            }
+                                            tem = '<path d="' + tem + `" stroke=${get_random_color(false)} fill="transparent" />`
+                                            path.push(tem)
+
+                                        }
+
+                                        // console.log(tem)
+
+                                        return path
+                                    }
+
+                                    // band图路径
+                                    // let ev_svg_path = get_ev_path(c_e_dpe_x, data_material.e_dpe_data, i)
+                                    let ev_svg_path = get_ev_path(data_material.e_dpe_data_fit_x, data_material.e_dpe_data_fit, i)
+
+                                    for (let j = 0; j < ev_svg_path.length; j++) {
+                                        evsvg.innerHTML += ev_svg_path[j]
+                                    }
+                                    // 散点图
+                                    let circle_e_dpe_data = []
+                                    for (let j = 0; j < c_e_dpe_x.length; j++) {
+
+                                        evsvg.innerHTML += `<circle class="e_dpe_circle" id="e_dpe_${j}" cx="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" cy="${remake_y(data_material.e_dpe_data[0][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+                                        evsvg.innerHTML += `<circle  class="e_dpe_circle" id="e_dpe_${j}" cx="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" cy="${remake_y(data_material.e_dpe_data[1][i][j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" r="2.0" stroke="#888" stroke-width="S" fill="#888" />`
+                                        circle_e_dpe_data.push(data_material.e_dpe_data[0][i][j])
+                                        circle_e_dpe_data.push(data_material.e_dpe_data[1][i][j])
+                                    }
+                                    // <!-- 图框 -->
+                                    evsvg.innerHTML += `            
+                      <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                      <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                      <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                      <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    // x刻度
+                                    for (let j = 0; j < c_e_dpe_x.length; j++) {
+                                        evsvg.innerHTML += `<line x1="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y1="350" x2="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        evsvg.innerHTML += `<text x="${remake_x(c_e_dpe_x[j], -0.02, 0.02)}" y="370" class="x_scale">${c_e_dpe_x[j]}</text>`
+
+                                    }
+                                    for (let j = 0; j < 5; j++) {
+
+                                        evsvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.e_dpe_data_min_max[i])[j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.e_dpe_data_min_max[i])[j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        evsvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.e_dpe_data_min_max[i])[j], data_material.e_dpe_data_min_max[i][0], data_material.e_dpe_data_min_max[i][1])}" class="x_scale">${make_scale_xy(data_material.e_dpe_data_min_max[i])[j].toFixed(2)} </text>`
+                                    }
+                                    // 显示xy轴标题
+                                    evsvg.innerHTML += ' <text class="y_title" x=".625rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">Energy (eV)</text>'
+                                    evsvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'> \u0394a/a </text>`
+                                    evsvg.innerHTML += `<text class='x_title' x='15.625rem' y='9.375rem'> Ec = ${data_material.e_dpe[0][i].toFixed(2)} </text>`
+                                    evsvg.innerHTML += `<text class='x_title' x='15.625rem' y='15.625rem'> Ev = ${data_material.e_dpe[1][i].toFixed(2)} </text>`
+
+                                    // 给c_e_data e_dpe 添加事件
+                                    const c_e_data_event_tem = document.querySelectorAll('.c_e_data_circle')
+                                    const e_dpe_event_tem = document.querySelectorAll('.e_dpe_circle')
+                                    // console.log(c_e_data_event_tem)
+                                    const tip = document.querySelector('#tip')
+
+
+                                    for (let k = 0; k < c_e_data_event_tem.length; k++) {
+                                        c_e_data_event_tem[k].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                            // console.log("!!")
+                                            tip.style.display = 'block'
+                                            tip.style.left = `${clientX - 20}px`
+                                            tip.style.top = `${clientY - 70}px`
+                                            tip.innerHTML = `${data_material.c_ec_data[i][k]}ev`
+                                        })
+                                        c_e_data_event_tem[k].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                            tip.style.display = 'none'
+                                        })
+
+                                    }
+                                    for (let k = 0; k < e_dpe_event_tem.length; k++) {
+
+                                        e_dpe_event_tem[k].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                            // console.log("!!")
+                                            tip.style.display = 'block'
+                                            tip.style.left = `${clientX - 20}px`
+                                            tip.style.top = `${clientY - 70}px`
+                                            tip.innerHTML = `${circle_e_dpe_data[k]}ev`
+                                        })
+                                        e_dpe_event_tem[k].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                            tip.style.display = 'none'
+                                        })
+
+                                    }
+
+                                })
+
+                            }
+
+                        </script>
+
+                    </div>
+                </div>
+
+
+
+                <div class="detail_column">
+                    <div class="statement">The data for Seebeck coefficient, conductivity, and electronic thermal
+                        conductivity are obtained from the Boltztrap calculation module, which provides the n-type and
+                        p-type cases respectively. The doping concentration in the abscissa is selected in a range of
+                        several orders of magnitude near the Fermi surface.</div>
+                    <div class="chose_vector">
+                        <button class="vector_p " id="p-type">p-type</button>
+                        <button class="vector_n " id="n-type">n-type</button>
+
+                    </div>
+                    <div class="pf_seebeck_sigma_kappa_n">
+                        <svg id="ecsvg" class="pf_svg">
+
+
+                        </svg>
+                        <svg id="evsvg" class="kappa_svg">
+
+                        </svg>
+
+                        <script>
+                            // 获取svg
+                            const pfsvg = document.querySelector('.pf_svg')
+                            const kappasvg = document.querySelector('.kappa_svg')
+                            // console.log(pfsvg)
+                            const p_type = document.querySelector('.vector_p')
+                            const n_type = document.querySelector('.vector_n')
+                            p_type.style.backgroundColor = 'brown'
+                            // 默认运行一次
+                            for (let iter = 0; iter < 1; iter++) {
+                                function remake_pf_x(x, x_min, x_max) {
+                                    return 50 + 400 * (Math.log(x, 10) - Math.log(x_min, 10)) / (Math.log(x_max, 10) - Math.log(x_min, 10))
+                                }
+
+                                function remake_pf_y(x, x_min, x_max) {
+                                    return 400 - (50 + 200 * (x - x_min) / (x_max - x_min))
+                                }
+
+                                // xy刻度
+                                function make_scale_xy(x) {
+                                    // 得到xy的刻度
+                                    let y = []
+                                    for (let i = 0; i < 5; i++) {
+                                        if (i != 4) {
+                                            y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                        }
+                                        else {
+                                            y.push(Number(x[1]))
+                                        }
+
+                                    }
+                                    return y
+                                }
+                                const seebeck_color = get_random_color(false)
+                                const sigma_color = get_random_color(false)
+                                const pf_color = get_random_color(false)
+                                const kappa_color = get_random_color(false)
+
+                                // 路径plot
+                                function get_pf_path(x, y, i, color) {
+                                    let path = []
+                                    let tem = ''
+                                    for (let j = 0; j < x.length; j++) {
+                                        if (j == 0) {
+                                            tem += `M ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])} `
+                                        }
+                                        else {
+                                            // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                            tem += `S ${(remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1]) + remake_pf_x(x[j - 1], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])) / 2} ${(remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1]) + remake_pf_y(y[i][j - 1], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])) / 2} ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])} `
+                                        }
+                                    }
+                                    tem = '<path d="' + tem + `" stroke=${color} fill="transparent" />`
+                                    path.push(tem)
+
+
+
+                                    // console.log(tem)
+
+                                    return path
+                                }
+
+                                // 路径图
+
+                                let seebeck_svg_path = get_pf_path(data_material.boltz_N_p, data_material.boltz_seebeck, 0, seebeck_color)
+                                let sigma_svg_path = get_pf_path(data_material.boltz_N_p, data_material.boltz_sigma, 0, sigma_color)
+                                let pf_svg_path = get_pf_path(data_material.boltz_N_p, data_material.boltz_pf, 0, pf_color)
+                                for (let j = 0; j < seebeck_svg_path.length; j++) {
+                                    pfsvg.innerHTML += seebeck_svg_path[j]
+                                    pfsvg.innerHTML += sigma_svg_path[j]
+                                    pfsvg.innerHTML += pf_svg_path[j]
+                                }
+                                // 路径label
+                                pfsvg.innerHTML += `<rect x="100" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                pfsvg.innerHTML += `<rect x="215" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                pfsvg.innerHTML += `<rect x="330" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                pfsvg.innerHTML += `<text x="120" y="100" class="dos_label">S</text>`
+                                pfsvg.innerHTML += `<line x1="130" y1="95" x2="170" y2="95" style="stroke: ${seebeck_color}; stroke-width:S"/>`
+                                pfsvg.innerHTML += `<text x="235" y="100" class="dos_label">&#963</text>`
+                                pfsvg.innerHTML += `<line x1="245" y1="95" x2="285" y2="95" style="stroke: ${sigma_color}; stroke-width:S"/>`
+
+                                pfsvg.innerHTML += ` <text x="350" y="100" class="dos_label">S\u00B2&#963</text>`
+                                pfsvg.innerHTML += `<line x1="365" y1="95" x2="400" y2="95" style="stroke: ${pf_color}; stroke-width:S"/>`
+                                // 散点图
+                                for (let i = 0; i < data_material.boltz_N_p.length; i++) {
+                                    // seebeck
+                                    pfsvg.innerHTML += `<circle class="seebeck_circle" id="seebeck_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_seebeck[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${seebeck_color} stroke-width="S" fill=${seebeck_color} />`
+                                    // sigma
+                                    pfsvg.innerHTML += `<circle class="sigma_circle" id="sigma_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_sigma[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${sigma_color} stroke-width="S" fill=${sigma_color} />`
+                                    // pf
+                                    pfsvg.innerHTML += `<circle class="pf_circle" id="pf_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_pf[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${pf_color} stroke-width="S" fill=${pf_color} />`
+
+                                    // kappa_
+                                    kappasvg.innerHTML += `<circle class="kappa_circle" id="kappa_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_y(data_material.boltz_kappa[iter][i], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" r="2.0"stroke=${kappa_color} stroke-width="S" fill=${kappa_color} />`
+                                }
+                                pfsvg.innerHTML += `            <!-- 图框 -->
+                <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                // xy刻度
+                                for (let j = 0; j < 5; j++) {
+                                    // console.log(remake_x(make_scale_xy([17, 21]), 17, 21))
+                                    pfsvg.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    pfsvg.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+
+                                    pfsvg.innerHTML += `<line x1="50" y1="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" x2="43" y2="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    pfsvg.innerHTML += `<text x="30" y="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" class="x_scale">${make_scale_xy(data_material.boltz_allpf_min_max[iter])[j].toFixed(2)} </text>`
+
+                                    // kappa_kedu
+                                    kappasvg.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    kappasvg.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">1e${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+                                }
+
+                                pfsvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+
+                                // kappa_svg
+                                // 散点图
+                                kappasvg.innerHTML += `        <!-- 图框 -->
+                <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                // 略
+                                // 路径图
+                                function get_kappa_path(x, y, i, color) {
+                                    let path = []
+                                    let tem = ''
+                                    for (let j = 0; j < x.length; j++) {
+                                        if (j == 0) {
+                                            tem += `M ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])} `
+                                        }
+                                        else {
+                                            // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                            tem += `S ${(remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1]) + remake_pf_x(x[j - 1], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])) / 2} ${(remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1]) + remake_y(y[i][j - 1], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])) / 2} ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])}`
+                                        }
+                                    }
+                                    tem = '<path d="' + tem + `" stroke=${color} fill="transparent" />`
+                                    path.push(tem)
+
+
+
+                                    // console.log(tem)
+
+                                    return path
+                                }
+                                let kappa_svg_path = get_kappa_path(data_material.boltz_N_p, data_material.boltz_kappa, iter, kappa_color)
+                                for (let j = 0; j < kappa_svg_path.length; j++) {
+                                    kappasvg.innerHTML += kappa_svg_path[j]
+                                }
+                                // xy刻度(x刻度略)
+                                for (let j = 0; j < 5; j++) {
+                                    kappasvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                    kappasvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" class="x_scale">${make_scale_xy(data_material.boltz_kappa_min_max[iter])[j].toExponential(1)} </text>`
+
+                                }
+
+                                // xy标题
+                                kappasvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+                                kappasvg.innerHTML += ` <text class="y_title" x=".8125rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">&#954&#8343(&#956W / (mK))</text > `
+                                // // kl虚线
+                                // kappasvg.innerHTML += `< line x1 = "50" y1 = "${remake_y(data_material.kl, data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" x2 = "450" y2 = "${remake_y(data_material.kl, data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" style = "stroke:rgb(0,0,0);stroke-width:S;stroke-dasharray:5,20,10,20" /> `
+                                // kappasvg.innerHTML += ' <text class="x_title" x="18.75rem" y="17.5rem" >&#954</text>'
+                                // kappasvg.innerHTML += ' <text class="x_title"  x="19.1875rem" y="17.8125rem" style="font-size: 14">\u2113</text>'
+
+
+
+                                // 点事件
+                                const circle_seebeck_event = document.querySelectorAll(`.seebeck_circle`)
+                                const circle_sigma_event = document.querySelectorAll(`.sigma_circle`)
+                                const circle_pf_event = document.querySelectorAll(`.pf_circle`)
+                                const circle_kappa_event = document.querySelectorAll(`.kappa_circle`)
+                                for (let i = 0; i < circle_seebeck_event.length; i++) {
+                                    circle_seebeck_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'block'
+                                        tip.style.left = `${clientX - 20} px`
+                                        tip.style.top = `${clientY - 70} px`
+                                        tip.innerHTML = `${data_material.boltz_seebeck[iter][i]} `
+                                    })
+                                    circle_seebeck_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                        tip.style.display = 'none'
+                                    })
+                                    circle_sigma_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'block'
+                                        tip.style.left = `${clientX - 20} px`
+                                        tip.style.top = `${clientY - 70} px`
+                                        tip.innerHTML = `${data_material.boltz_sigma[iter][i]} `
+                                    })
+                                    circle_sigma_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                        tip.style.display = 'none'
+                                    })
+                                    circle_pf_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'block'
+                                        tip.style.left = `${clientX - 20} px`
+                                        tip.style.top = `${clientY - 70} px`
+                                        tip.innerHTML = `${data_material.boltz_pf[iter][i]} `
+                                    })
+                                    circle_pf_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                        tip.style.display = 'none'
+                                    })
+                                    circle_kappa_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                        // console.log("!!")
+                                        tip.style.display = 'block'
+                                        tip.style.left = `${clientX - 20} px`
+                                        tip.style.top = `${clientY - 70} px`
+                                        tip.innerHTML = `${data_material.boltz_kappa[iter][i]} `
+                                    })
+                                    circle_kappa_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                        tip.style.display = 'none'
+                                    })
+
+                                }
+
+                            }
+                            // 点击运行
+                            for (let iter = 0; iter < 2; iter++) {
+                                if (iter == 0) {
+                                    p_type.addEventListener('click', function () {
+                                        pfsvg.innerHTML = ''
+                                        kappasvg.innerHTML = ''
+                                        p_type.style.backgroundColor = 'brown'
+                                        n_type.style.backgroundColor = xyz_color
+                                        function remake_pf_x(x, x_min, x_max) {
+                                            return 50 + 400 * (Math.log(x, 10) - Math.log(x_min, 10)) / (Math.log(x_max, 10) - Math.log(x_min, 10))
+                                        }
+
+                                        function remake_pf_y(x, x_min, x_max) {
+                                            return 400 - (50 + 200 * (x - x_min) / (x_max - x_min))
+                                        }
+
+                                        // xy刻度
+                                        function make_scale_xy(x) {
+                                            // 得到xy的刻度
+                                            let y = []
+                                            for (let i = 0; i < 5; i++) {
+                                                if (i != 4) {
+                                                    y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                                }
+                                                else {
+                                                    y.push(Number(x[1]))
+                                                }
+
+                                            }
+                                            return y
+                                        }
+                                        const seebeck_color = get_random_color(false)
+                                        const sigma_color = get_random_color(false)
+                                        const pf_color = get_random_color(false)
+                                        const kappa_color = get_random_color(false)
+
+                                        // 路径plot
+                                        function get_pf_path(x, y, i, color) {
+                                            let path = []
+                                            let tem = ''
+                                            for (let j = 0; j < x.length; j++) {
+                                                if (j == 0) {
+                                                    tem += `M ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])} `
+                                                }
+                                                else {
+                                                    // tem += `T ${ remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1]) } ${ remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1]) } `
+                                                    tem += `S ${(remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1]) + remake_pf_x(x[j - 1], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])) / 2} ${(remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1]) + remake_pf_y(y[i][j - 1], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])) / 2} ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])} `
+                                                }
+                                            }
+                                            tem = '<path d="' + tem + `" stroke=${color} fill="transparent" />`
+                                            path.push(tem)
+
+
+
+                                            // console.log(tem)
+
+                                            return path
+                                        }
+
+                                        // 路径图
+
+                                        let seebeck_svg_path = get_pf_path(data_material.boltz_N_p, data_material.boltz_seebeck, 0, seebeck_color)
+                                        let sigma_svg_path = get_pf_path(data_material.boltz_N_p, data_material.boltz_sigma, 0, sigma_color)
+                                        let pf_svg_path = get_pf_path(data_material.boltz_N_p, data_material.boltz_pf, 0, pf_color)
+                                        for (let j = 0; j < seebeck_svg_path.length; j++) {
+                                            pfsvg.innerHTML += seebeck_svg_path[j]
+                                            pfsvg.innerHTML += sigma_svg_path[j]
+                                            pfsvg.innerHTML += pf_svg_path[j]
+                                        }
+                                        // 路径label
+                                        pfsvg.innerHTML += `<rect x="100" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                        pfsvg.innerHTML += `<rect x="215" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                        pfsvg.innerHTML += `<rect x="330" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                        pfsvg.innerHTML += `<text x="120" y="100" class="dos_label">S</text>`
+                                        pfsvg.innerHTML += `<line x1="130" y1="95" x2="170" y2="95" style="stroke: ${seebeck_color}; stroke-width:S"/>`
+                                        pfsvg.innerHTML += `<text x="235" y="100" class="dos_label">&#963</text>`
+                                        pfsvg.innerHTML += `<line x1="245" y1="95" x2="285" y2="95" style="stroke: ${sigma_color}; stroke-width:S"/>`
+
+                                        pfsvg.innerHTML += ` <text x="350" y="100" class="dos_label">S\u00B2&#963</text>`
+                                        pfsvg.innerHTML += `<line x1="365" y1="95" x2="400" y2="95" style="stroke: ${pf_color}; stroke-width:S"/>`
+                                        // 散点图
+                                        for (let i = 0; i < data_material.boltz_N_p.length; i++) {
+                                            // seebeck
+                                            pfsvg.innerHTML += `<circle class="seebeck_circle" id="seebeck_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_seebeck[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${seebeck_color} stroke-width="S" fill=${seebeck_color} />`
+                                            // sigma
+                                            pfsvg.innerHTML += `<circle class="sigma_circle" id="sigma_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_sigma[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${sigma_color} stroke-width="S" fill=${sigma_color} />`
+                                            // pf
+                                            pfsvg.innerHTML += `<circle class="pf_circle" id="pf_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_pf[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${pf_color} stroke-width="S" fill=${pf_color} />`
+
+                                            // kappa_
+                                            kappasvg.innerHTML += `<circle class="kappa_circle" id="kappa_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_y(data_material.boltz_kappa[iter][i], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" r="2.0"stroke=${kappa_color} stroke-width="S" fill=${kappa_color} />`
+                                        }
+                                        pfsvg.innerHTML += `            <!-- 图框 -->
+                <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        // xy刻度
+                                        for (let j = 0; j < 5; j++) {
+                                            // console.log(remake_x(make_scale_xy([17, 21]), 17, 21))
+                                            pfsvg.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            pfsvg.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+
+                                            pfsvg.innerHTML += `<line x1="50" y1="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" x2="43" y2="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            pfsvg.innerHTML += `<text x="30" y="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" class="x_scale">${make_scale_xy(data_material.boltz_allpf_min_max[iter])[j].toFixed(2)} </text>`
+
+                                            // kappa_kedu
+                                            kappasvg.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            kappasvg.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">1e${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+                                        }
+
+                                        pfsvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+
+                                        // kappa_svg
+                                        // 散点图
+                                        kappasvg.innerHTML += `        <!-- 图框 -->
+                <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        // 略
+                                        // 路径图
+                                        function get_kappa_path(x, y, i, color) {
+                                            let path = []
+                                            let tem = ''
+                                            for (let j = 0; j < x.length; j++) {
+                                                if (j == 0) {
+                                                    tem += `M ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])} `
+                                                }
+                                                else {
+                                                    // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                                    tem += `S ${(remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1]) + remake_pf_x(x[j - 1], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])) / 2} ${(remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1]) + remake_y(y[i][j - 1], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])) / 2} ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])}`
+                                                }
+                                            }
+                                            tem = '<path d="' + tem + `" stroke=${color} fill="transparent" />`
+                                            path.push(tem)
+
+
+
+                                            // console.log(tem)
+
+                                            return path
+                                        }
+                                        let kappa_svg_path = get_kappa_path(data_material.boltz_N_p, data_material.boltz_kappa, iter, kappa_color)
+                                        for (let j = 0; j < kappa_svg_path.length; j++) {
+                                            kappasvg.innerHTML += kappa_svg_path[j]
+                                        }
+                                        // xy刻度(x刻度略)
+                                        for (let j = 0; j < 5; j++) {
+                                            kappasvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            kappasvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" class="x_scale">${make_scale_xy(data_material.boltz_kappa_min_max[iter])[j].toExponential(1)} </text>`
+
+                                        }
+
+                                        // xy标题
+                                        kappasvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+                                        kappasvg.innerHTML += ` <text class="y_title" x=".8125rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">&#954&#8343(&#956W / (mK))</text > `
+                                        // // kl虚线
+                                        // kappasvg.innerHTML += `<line x1="50" y1="${remake_y(data_material.kl, data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" x2="450" y2="${remake_y(data_material.kl, data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S;stroke-dasharray:5,20,10,20" />`
+                                        // kappasvg.innerHTML += ' <text class="x_title" x="18.75rem" y="17.5rem" >&#954</text>'
+                                        // kappasvg.innerHTML += ' <text class="x_title"  x="19.1875rem" y="17.8125rem" style="font-size: 14">\u2113</text>'
+
+
+
+                                        // 点事件
+                                        const circle_seebeck_event = document.querySelectorAll(`.seebeck_circle`)
+                                        const circle_sigma_event = document.querySelectorAll(`.sigma_circle`)
+                                        const circle_pf_event = document.querySelectorAll(`.pf_circle`)
+                                        const circle_kappa_event = document.querySelectorAll(`.kappa_circle`)
+                                        for (let i = 0; i < circle_seebeck_event.length; i++) {
+                                            circle_seebeck_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_seebeck[iter][i]}`
+                                            })
+                                            circle_seebeck_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+                                            circle_sigma_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_sigma[iter][i]}`
+                                            })
+                                            circle_sigma_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+                                            circle_pf_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_pf[iter][i]}`
+                                            })
+                                            circle_pf_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+                                            circle_kappa_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_kappa[iter][i]}`
+                                            })
+                                            circle_kappa_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+
+                                        }
+
+                                    })
+                                }
+                                else {
+                                    n_type.addEventListener('click', function () {
+                                        pfsvg.innerHTML = ''
+                                        kappasvg.innerHTML = ''
+                                        p_type.style.backgroundColor = xyz_color
+                                        n_type.style.backgroundColor = 'brown'
+                                        function remake_pf_x(x, x_min, x_max) {
+                                            return 50 + 400 * (Math.log(x, 10) - Math.log(x_min, 10)) / (Math.log(x_max, 10) - Math.log(x_min, 10))
+                                        }
+
+                                        function remake_pf_y(x, x_min, x_max) {
+                                            return 400 - (50 + 200 * (x - x_min) / (x_max - x_min))
+                                        }
+
+                                        // xy刻度
+                                        function make_scale_xy(x) {
+                                            // 得到xy的刻度
+                                            let y = []
+                                            for (let i = 0; i < 5; i++) {
+                                                if (i != 4) {
+                                                    y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                                }
+                                                else {
+                                                    y.push(Number(x[1]))
+                                                }
+
+                                            }
+                                            return y
+                                        }
+                                        const seebeck_color = get_random_color(false)
+                                        const sigma_color = get_random_color(false)
+                                        const pf_color = get_random_color(false)
+                                        const kappa_color = get_random_color(false)
+
+                                        // 路径plot
+                                        function get_pf_path(x, y, i, color) {
+                                            let path = []
+                                            let tem = ''
+                                            for (let j = 0; j < x.length; j++) {
+                                                if (j == 0) {
+                                                    tem += `M ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])} `
+                                                }
+                                                else {
+                                                    // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                                    tem += `S ${(remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1]) + remake_pf_x(x[j - 1], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])) / 2} ${(remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1]) + remake_pf_y(y[i][j - 1], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])) / 2} ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.boltz_allpf_min_max[i][0], data_material.boltz_allpf_min_max[i][1])} `
+                                                }
+                                            }
+                                            tem = '<path d="' + tem + `" stroke=${color} fill="transparent" />`
+                                            path.push(tem)
+
+
+
+                                            // console.log(tem)
+
+                                            return path
+                                        }
+
+                                        // 路径图
+
+                                        let seebeck_svg_path = get_pf_path(data_material.boltz_N_n, data_material.boltz_seebeck, 1, seebeck_color)
+                                        let sigma_svg_path = get_pf_path(data_material.boltz_N_n, data_material.boltz_sigma, 1, sigma_color)
+                                        let pf_svg_path = get_pf_path(data_material.boltz_N_n, data_material.boltz_pf, 1, pf_color)
+                                        for (let j = 0; j < seebeck_svg_path.length; j++) {
+                                            pfsvg.innerHTML += seebeck_svg_path[j]
+                                            pfsvg.innerHTML += sigma_svg_path[j]
+                                            pfsvg.innerHTML += pf_svg_path[j]
+                                        }
+                                        // 路径label
+                                        pfsvg.innerHTML += `<rect x="100" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                        pfsvg.innerHTML += `<rect x="215" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                        pfsvg.innerHTML += `<rect x="330" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                                        pfsvg.innerHTML += `<text x="120" y="100" class="dos_label">S</text>`
+                                        pfsvg.innerHTML += `<line x1="130" y1="95" x2="170" y2="95" style="stroke: ${seebeck_color}; stroke-width:S"/>`
+                                        pfsvg.innerHTML += `<text x="235" y="100" class="dos_label">&#963</text>`
+                                        pfsvg.innerHTML += `<line x1="245" y1="95" x2="285" y2="95" style="stroke: ${sigma_color}; stroke-width:S"/>`
+
+                                        pfsvg.innerHTML += ` <text x="350" y="100" class="dos_label">S\u00B2&#963</text>`
+                                        pfsvg.innerHTML += `<line x1="365" y1="95" x2="400" y2="95" style="stroke: ${pf_color}; stroke-width:S"/>`
+                                        // 散点图
+                                        for (let i = 0; i < data_material.boltz_N_n.length; i++) {
+                                            // seebeck
+                                            pfsvg.innerHTML += `<circle class="seebeck_circle" id="seebeck_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_n[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_seebeck[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${seebeck_color} stroke-width="S" fill=${seebeck_color} />`
+                                            // sigma
+                                            pfsvg.innerHTML += `<circle class="sigma_circle" id="sigma_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_n[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_sigma[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${sigma_color} stroke-width="S" fill=${sigma_color} />`
+                                            // pf
+                                            pfsvg.innerHTML += `<circle class="pf_circle" id="pf_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_n[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.boltz_pf[iter][i], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" r="2.0"stroke=${pf_color} stroke-width="S" fill=${pf_color} />`
+
+                                            // kappa_
+                                            kappasvg.innerHTML += `<circle class="kappa_circle" id="kappa_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_n[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_y(data_material.boltz_kappa[iter][i], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" r="2.0"stroke=${kappa_color} stroke-width="S" fill=${kappa_color} />`
+                                        }
+                                        pfsvg.innerHTML += `            <!-- 图框 -->
+                <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        // xy刻度
+                                        for (let j = 0; j < 5; j++) {
+                                            // console.log(remake_x(make_scale_xy([17, 21]), 17, 21))
+                                            pfsvg.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            pfsvg.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+
+                                            pfsvg.innerHTML += `<line x1="50" y1="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" x2="43" y2="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            pfsvg.innerHTML += `<text x="30" y="${remake_pf_y(make_scale_xy(data_material.boltz_allpf_min_max[iter])[j], data_material.boltz_allpf_min_max[iter][0], data_material.boltz_allpf_min_max[iter][1])}" class="x_scale">${make_scale_xy(data_material.boltz_allpf_min_max[iter])[j].toFixed(2)} </text>`
+
+                                            // kappa_kedu
+                                            kappasvg.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            kappasvg.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">1e${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+                                        }
+
+                                        pfsvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+
+                                        // kappa_svg
+                                        // 散点图
+                                        kappasvg.innerHTML += `        <!-- 图框 -->
+                <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                        // 略
+                                        // 路径图
+                                        function get_kappa_path(x, y, i, color) {
+                                            let path = []
+                                            let tem = ''
+                                            for (let j = 0; j < x.length; j++) {
+                                                if (j == 0) {
+                                                    tem += `M ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])} `
+                                                }
+                                                else {
+                                                    // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                                    tem += `S ${(remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1]) + remake_pf_x(x[j - 1], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])) / 2} ${(remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1]) + remake_y(y[i][j - 1], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])) / 2} ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_y(y[i][j], data_material.boltz_kappa_min_max[i][0] - data_material.kl, data_material.boltz_kappa_min_max[i][1])}`
+                                                }
+                                            }
+                                            tem = '<path d="' + tem + `" stroke=${color} fill="transparent" />`
+                                            path.push(tem)
+
+
+
+                                            // console.log(tem)
+
+                                            return path
+                                        }
+                                        let kappa_svg_path = get_kappa_path(data_material.boltz_N_n, data_material.boltz_kappa, iter, kappa_color)
+                                        for (let j = 0; j < kappa_svg_path.length; j++) {
+                                            kappasvg.innerHTML += kappa_svg_path[j]
+                                        }
+                                        // xy刻度(x刻度略)
+                                        for (let j = 0; j < 5; j++) {
+                                            kappasvg.innerHTML += `<line x1="50" y1="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" x2="43" y2="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                            kappasvg.innerHTML += `<text x="30" y="${remake_y(make_scale_xy(data_material.boltz_kappa_min_max[iter])[j], data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" class="x_scale">${make_scale_xy(data_material.boltz_kappa_min_max[iter])[j].toExponential(1)} </text>`
+
+                                        }
+
+                                        // xy标题
+                                        kappasvg.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+                                        kappasvg.innerHTML += ` <text class="y_title" x=".8125rem" y="12.5rem"       transform-origin= ".625rem 12.5rem">&#954&#8343(&#956W / (mK))</text > `
+                                        // // kl虚线
+                                        // kappasvg.innerHTML += `<line x1="50" y1="${remake_y(data_material.kl, data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" x2="450" y2="${remake_y(data_material.kl, data_material.boltz_kappa_min_max[iter][0] - data_material.kl, data_material.boltz_kappa_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S;stroke-dasharray:5,20,10,20" />`
+                                        // kappasvg.innerHTML += ' <text class="x_title" x="18.75rem" y="17.5rem" >&#954</text>'
+                                        // kappasvg.innerHTML += ' <text class="x_title"  x="19.1875rem" y="17.8125rem" style="font-size: 14">\u2113</text>'
+
+
+
+                                        // 点事件
+                                        const circle_seebeck_event = document.querySelectorAll(`.seebeck_circle`)
+                                        const circle_sigma_event = document.querySelectorAll(`.sigma_circle`)
+                                        const circle_pf_event = document.querySelectorAll(`.pf_circle`)
+                                        const circle_kappa_event = document.querySelectorAll(`.kappa_circle`)
+                                        for (let i = 0; i < circle_seebeck_event.length; i++) {
+                                            circle_seebeck_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_seebeck[iter][i]}`
+                                            })
+                                            circle_seebeck_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+                                            circle_sigma_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_sigma[iter][i]}`
+                                            })
+                                            circle_sigma_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+                                            circle_pf_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_pf[iter][i]}`
+                                            })
+                                            circle_pf_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+                                            circle_kappa_event[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                                // console.log("!!")
+                                                tip.style.display = 'block'
+                                                tip.style.left = `${clientX - 20}px`
+                                                tip.style.top = `${clientY - 70}px`
+                                                tip.innerHTML = `${data_material.boltz_kappa[iter][i]}`
+                                            })
+                                            circle_kappa_event[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                                tip.style.display = 'none'
+                                            })
+
+                                        }
+
+                                    })
+                                }
+
+                            }
+                            // circle_seebeck_event.
+
+                        </script>
+
+
+                    </div>
+                </div>
+
+                <div class="detail_column">
+                    <div class="statement">The variation of thermoelectric optimal value and BE value with respect to
+                        concentration.</div>
+
+                    <div class="zt_be_n">
+                        <svg id="ecsvg" class="p_type_ztbe">
+                            <!-- 图框 -->
+                            <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                        </svg>
+                        <svg id="evsvg" class="n_type_ztbe">
+                            <!-- 图框 -->
+                            <line x1="50" y1="50" x2="50" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="50" y1="50" x2="450" y2="50" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="450" y1="50" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                            <line x1="50" y1="350" x2="450" y2="350" style="stroke:rgb(0,0,0);stroke-width:S" />
+                        </svg>
+                        <script>
+                            // 获取svg
+                            const ztbe_svg_n = document.querySelector('.n_type_ztbe')
+                            const ztbe_svg_p = document.querySelector('.p_type_ztbe')
+                            function remake_pf_x(x, x_min, x_max) {
+                                return 50 + 400 * (Math.log(x, 10) - Math.log(x_min, 10)) / (Math.log(x_max, 10) - Math.log(x_min, 10))
+                            }
+
+                            function remake_pf_y(x, x_min, x_max) {
+                                return 400 - (50 + 200 * (x - x_min) / (x_max - x_min))
+                            }
+
+                            // xy刻度
+                            function make_scale_y(x) {
+                                // 得到xy的刻度
+                                let y = []
+                                for (let i = 0; i < 5; i++) {
+                                    if (i != 4) {
+                                        y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                                    }
+                                    else {
+                                        y.push(Number(x[1]))
+                                    }
+
+                                }
+                                return y
+                            }
+                            // function make_scale_xy(x) {
+                            //     // 得到xy的刻度
+                            //     let y = []
+                            //     for (let i = 0; i < 5; i++) {
+                            //         if (i != 4) {
+                            //             y.push(Number(i * (x[1] - x[0]) / 4 + x[0]))
+                            //         }
+                            //         else {
+                            //             y.push(Number(x[1]))
+                            //         }
+
+                            //     }
+                            //     return y
+                            // }
+                            const zt_color = get_random_color(false)
+                            const be_color = get_random_color(false)
+
+
+                            // 路径plot
+                            function get_ztbe_path(x, y, i, color) {
+                                let path = []
+                                let tem = ''
+                                for (let j = 0; j < x.length; j++) {
+                                    if (j == 0) {
+                                        tem += `M ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.ztbe_min_max[i][0], data_material.ztbe_min_max[i][1])} `
+                                    }
+                                    else {
+                                        // tem += `T ${remake_x(x[j], data_material.l_min_max[0], data_material.l_min_max[1])} ${remake_y(y[i][j], data_material.energy_min_max[0], data_material.energy_min_max[1])} `
+                                        tem += `S ${(remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1]) + remake_pf_x(x[j - 1], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])) / 2} ${(remake_pf_y(y[i][j], data_material.ztbe_min_max[i][0], data_material.ztbe_min_max[i][1]) + remake_pf_y(y[i][j - 1], data_material.ztbe_min_max[i][0], data_material.ztbe_min_max[i][1])) / 2} ${remake_pf_x(x[j], data_material.boltz_N_min_max[i][0], data_material.boltz_N_min_max[i][1])} ${remake_pf_y(y[i][j], data_material.ztbe_min_max[i][0], data_material.ztbe_min_max[i][1])} `
+                                    }
+                                }
+                                tem = '<path d="' + tem + `" stroke=${color} fill="transparent" />`
+                                path.push(tem)
+
+
+
+                                // console.log(tem)
+
+                                return path
+                            }
+
+
+                            let iter = 0
+
+
+                            // 路径图
+                            let zt_svg_path = get_ztbe_path(data_material.boltz_N_p, data_material.zt, iter, zt_color)
+                            let be_svg_path = get_ztbe_path(data_material.boltz_N_p, data_material.be, iter, be_color)
+
+                            for (let j = 0; j < zt_svg_path.length; j++) {
+                                ztbe_svg_p.innerHTML += zt_svg_path[j]
+                                ztbe_svg_p.innerHTML += be_svg_path[j]
+
+                            }
+                            // 路径label
+                            ztbe_svg_p.innerHTML += `<rect x="150" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                            ztbe_svg_p.innerHTML += `<rect x="260" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+
+                            ztbe_svg_p.innerHTML += `<text x="170" y="100" class="dos_label">ZT</text>`
+                            ztbe_svg_p.innerHTML += `<line x1="190" y1="95" x2="220" y2="95" style="stroke: ${zt_color}; stroke-width:S"/>`
+                            ztbe_svg_p.innerHTML += `<text x="280" y="100" class="dos_label">BE</text>`
+                            ztbe_svg_p.innerHTML += `<line x1="300" y1="95" x2="330" y2="95" style="stroke: ${be_color}; stroke-width:S"/>`
+                            // 散点图
+                            for (let i = 0; i < data_material.boltz_N_p.length; i++) {
+                                // seebeck
+                                ztbe_svg_p.innerHTML += `<circle class="zt_circle_p" id="ztp_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.zt[iter][i], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" r="2.0"stroke=${zt_color} stroke-width="S" fill=${zt_color} />`
+                                ztbe_svg_p.innerHTML += `<circle class="be_circle_p" id="bep_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_p[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.be[iter][i], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" r="2.0"stroke=${be_color} stroke-width="S" fill=${be_color} />`
+                            }
+                            // xy刻度
+                            for (let j = 0; j < 5; j++) {
+                                // console.log(remake_x(make_scale_xy([17, 21]), 17, 21))
+                                ztbe_svg_p.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                ztbe_svg_p.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+
+                                ztbe_svg_p.innerHTML += `<line x1="50" y1="${remake_pf_y(make_scale_y(data_material.ztbe_min_max[iter])[j], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" x2="43" y2="${remake_pf_y(make_scale_y(data_material.ztbe_min_max[iter])[j], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                ztbe_svg_p.innerHTML += `<text x="30" y="${remake_pf_y(make_scale_y(data_material.ztbe_min_max[iter])[j], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" class="x_scale">${make_scale_y(data_material.ztbe_min_max[iter])[j].toFixed(2)} </text>`
+
+
+                            }
+                            // xy标题
+                            ztbe_svg_p.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+                            ztbe_svg_p.innerHTML += `<text class='x_title' x='15.625rem' y='1.25rem'>p-type</text>`
+
+                            // n_type
+                            iter = 1
+                            const zt_color_n = get_random_color(false)
+                            const be_color_n = get_random_color(false)
+                            // 路径图
+                            zt_svg_path = get_ztbe_path(data_material.boltz_N_n, data_material.zt, iter, zt_color_n)
+                            be_svg_path = get_ztbe_path(data_material.boltz_N_n, data_material.be, iter, be_color_n)
+
+                            for (let j = 0; j < zt_svg_path.length; j++) {
+                                ztbe_svg_n.innerHTML += zt_svg_path[j]
+                                ztbe_svg_n.innerHTML += be_svg_path[j]
+
+                            }
+                            // 路径label
+                            ztbe_svg_n.innerHTML += `<rect x="150" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+                            ztbe_svg_n.innerHTML += `<rect x="260" y="80" width="80" height="30" style="stroke: #888; fill: transparent"/>`
+
+                            ztbe_svg_n.innerHTML += `<text x="170" y="100" class="dos_label">ZT</text>`
+                            ztbe_svg_n.innerHTML += `<line x1="190" y1="95" x2="220" y2="95" style="stroke: ${zt_color_n}; stroke-width:S"/>`
+                            ztbe_svg_n.innerHTML += `<text x="280" y="100" class="dos_label">BE</text>`
+                            ztbe_svg_n.innerHTML += `<line x1="300" y1="95" x2="330" y2="95" style="stroke: ${be_color_n}; stroke-width:S"/>`
+                            // 散点图
+                            for (let i = 0; i < data_material.boltz_N_n.length; i++) {
+                                // seebeck
+                                ztbe_svg_n.innerHTML += `<circle class="zt_circle_n" id="ztn_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_n[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.zt[iter][i], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" r="2.0"stroke=${zt_color_n} stroke-width="S" fill=${zt_color_n} />`
+                                ztbe_svg_n.innerHTML += `<circle class="be_circle_n" id="ben_circle_${i}" cx="${remake_pf_x(data_material.boltz_N_n[i], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" cy="${remake_pf_y(data_material.be[iter][i], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" r="2.0"stroke=${be_color_n} stroke-width="S" fill=${be_color_n} />`
+                            }
+
+                            // xy刻度
+                            for (let j = 0; j < 5; j++) {
+                                // console.log(remake_x(make_scale_xy([17, 21]), 17, 21))
+                                ztbe_svg_n.innerHTML += `<line x1="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y1="350" x2="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y2="357" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                ztbe_svg_n.innerHTML += `<text x="${remake_pf_x(make_scale_xy(data_material.boltz_N_min_max[iter])[j], data_material.boltz_N_min_max[iter][0], data_material.boltz_N_min_max[iter][1])}" y="370" class="x_scale">${make_scale_xy(data_material.boltz_N_min_max[iter])[j].toExponential(1)}</text>`
+
+                                ztbe_svg_n.innerHTML += `<line x1="50" y1="${remake_pf_y(make_scale_y(data_material.ztbe_min_max[iter])[j], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" x2="43" y2="${remake_pf_y(make_scale_y(data_material.ztbe_min_max[iter])[j], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" style="stroke:rgb(0,0,0);stroke-width:S" />`
+                                ztbe_svg_n.innerHTML += `<text x="30" y="${remake_pf_y(make_scale_y(data_material.ztbe_min_max[iter])[j], data_material.ztbe_min_max[iter][0], data_material.ztbe_min_max[iter][1])}" class="x_scale">${make_scale_y(data_material.ztbe_min_max[iter])[j].toFixed(2)} </text>`
+
+
+                            }
+                            // xy标题
+                            ztbe_svg_n.innerHTML += `<text class='x_title' x='15.625rem' y='24.375rem'>N(cm\u207B\u00B3)</text>`
+                            ztbe_svg_n.innerHTML += `<text class='x_title' x='15.625rem' y='1.25rem'>n-type</text>`
+                            // 点响应事件
+                            const zt_circle_p = document.querySelectorAll('.zt_circle_p')
+                            // console.log(zt_circle_p)
+                            const be_circle_p = document.querySelectorAll('.be_circle_p')
+                            const zt_circle_n = document.querySelectorAll('.zt_circle_n')
+                            const be_circle_n = document.querySelectorAll('.be_circle_n')
+                            for (let i = 0; i < zt_circle_p.length; i++) {
+                                zt_circle_p[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                    console.log("!!")
+                                    tip.style.display = 'block'
+                                    tip.style.left = `${clientX - 20}px`
+                                    tip.style.top = `${clientY - 70}px`
+                                    tip.innerHTML = `${data_material.zt[0][i]}`
+                                })
+                                zt_circle_p[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                    tip.style.display = 'none'
+                                })
+                                be_circle_p[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                    console.log("!!")
+                                    tip.style.display = 'block'
+                                    tip.style.left = `${clientX - 20}px`
+                                    tip.style.top = `${clientY - 70}px`
+                                    tip.innerHTML = `${data_material.be[0][i]}`
+                                })
+                                be_circle_p[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                    tip.style.display = 'none'
+                                })
+                            }
+                            for (let i = 0; i < zt_circle_n.length; i++) {
+                                zt_circle_n[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                    console.log("!!")
+                                    tip.style.display = 'block'
+                                    tip.style.left = `${clientX - 20}px`
+                                    tip.style.top = `${clientY - 70}px`
+                                    tip.innerHTML = `${data_material.zt[1][i]}`
+                                })
+                                zt_circle_n[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                    tip.style.display = 'none'
+                                })
+                                be_circle_n[i].addEventListener('mouseover', function ({ clientX, clientY }) {
+                                    console.log("!!")
+                                    tip.style.display = 'block'
+                                    tip.style.left = `${clientX - 20}px`
+                                    tip.style.top = `${clientY - 70}px`
+                                    tip.innerHTML = `${data_material.be[1][i]}`
+                                })
+                                be_circle_n[i].addEventListener('mouseout', function ({ clientX, clientY }) {
+                                    tip.style.display = 'none'
+                                })
+                            }
+                        </script>
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

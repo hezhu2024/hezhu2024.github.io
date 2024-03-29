@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMT_search(Database of First-rinciples Calculations of Mechanical and Thermal Properties of Materials)
+    </title>
+    <link rel="icon" href="../img/title.svg">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/search.css">
+
+
+    <style>
+        .header {
+            position: relative;
+            height: 180px;
+            /* margin: 0 auto; */
+            /* /* background-color: #888; */
+            background: url(../img/20171216051311818.jpg);
+        }
+
+        .nav {
+            position: absolute;
+            top: 80px;
+            right: 22%;
+            width: 5%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 25px;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+
+        }
+
+        .nav ul {
+            display: flex;
+            height: 50px;
+            margin: 0px 50px;
+            flex-direction: row;
+            justify-content: left;
+        }
+
+        .nav ul li {
+            width: 125px;
+            height: 40px;
+            line-height: 50px;
+            margin: 0px 20px;
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            border-bottom: #eaeaea solid 1px;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1200px;
+            height: 800px;
+            background-color: #fff;
+        }
+
+        .search_nav {
+            position: relative;
+            margin-top: 20px;
+            height: 80px;
+            /* text-align: center; */
+            background-color: #fff;
+
+        }
+
+        #search_text {
+            margin: 10px 0;
+            margin-left: 70px;
+            width: 600px;
+            height: 60px;
+            border: 2px solid #888;
+            border-radius: 8px;
+        }
+
+        .search_nav input[type='button'] {
+            margin-left: 10px;
+            width: 100px;
+            height: 60px;
+            border: 2px solid #888;
+            border-radius: 8px;
+            background-color: #eee;
+        }
+
+        .search_nav input[type='button']:hover {
+            background-color: brown;
+            border: 2px solid brown;
+            transition: all 0.5s linear;
+
+        }
+
+        .number_control {
+            position: absolute;
+            top: 10px;
+            right: 60px;
+            width: 300px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 2px solid #888;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .container ul {
+            margin-left: 15px;
+        }
+
+        .container ul:nth-child(1) {
+            margin-top: 15px;
+        }
+
+        /* .container ul:nth-child(1) li:nth-child(2) {
+            margin-left: 1035px;
+        } */
+        .container ul li {
+            display: inline-block;
+            overflow: hidden;
+            margin: 2px auto;
+            width: 60px;
+            height: 70px;
+            /* background-color: white; */
+            /* background-color: #1f96f8; */
+            border-radius: 2px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, .3);
+            mix-blend-mode: multiply;
+        }
+
+
+        #element_2 {
+            margin-left: 1035px;
+        }
+
+        #element_5,
+        #element_13 {
+            margin-left: 647px;
+        }
+
+        #element_57 {
+            margin-left: 130px;
+        }
+
+        #element_Lanthanides {
+            z-index: 20;
+            background-color: rgba(175, 198, 55, 0.5);
+        }
+
+
+        .NonMetals {
+            color: rgba(77, 136, 111, 0.8);
+            background-color: rgba(77, 136, 111, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .AlkaliMetals {
+            color: rgba(216, 185, 168, 0.8);
+            background-color: rgba(216, 185, 168, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .AlkaliEarths {
+            color: rgba(181, 126, 173, 0.8);
+            background-color: rgba(181, 126, 173, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .Metals {
+            color: rgba(231, 118, 45, 0.8);
+            background-color: rgba(231, 118, 45, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .Metalloid {
+            color: rgba(254, 198, 81, 0.8);
+            background-color: rgba(254, 198, 81, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .TransitionMetals {
+            color: rgba(91, 194, 202, 0.8);
+            background-color: rgba(91, 194, 202, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .Lanthanides {
+            color: rgba(175, 198, 55, 0.8);
+            background-color: rgba(175, 198, 55, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .Haiogen {
+            color: rgba(218, 125, 140, 0.8);
+            background-color: rgb(218, 125, 140, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .Noble_Gas {
+            color: rgba(172, 164, 175, 0.8);
+            background-color: rgba(172, 164, 175, 0.8);
+            z-index: 10;
+            mix-blend-mode: multiply;
+        }
+
+        .element-Z {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            height: 12px;
+            margin-left: 5px;
+            width: 55px;
+            color: #000;
+            mix-blend-mode: multiply;
+        }
+
+        .element-symbol {
+            font-size: 24px;
+            font-weight: 700;
+            height: 28px;
+            text-align: center;
+            width: 60px;
+            color: #000;
+            /* mix-blend-mode: multiply; */
+        }
+
+        .element-name {
+            font-family: Roboto;
+            font-size: 12px;
+            height: 20px;
+            text-align: center;
+            width: 60px;
+            color: #000;
+            transition: all 0.8s linear;
+        }
+
+        .element-name:hover {
+            margin-left: -20px;
+        }
+
+        .element-groups-wrapper {
+            /* display: flex; */
+            position: absolute;
+            top: 10px;
+            left: 220px;
+            width: 550px;
+            height: 200px;
+            /* background-color: pink; */
+        }
+
+        .categroy {
+            width: 510px;
+            height: 50px;
+            color: #000;
+            font-size: 20px;
+            font-family: Montserrat;
+            text-align: left;
+            line-height: 50px;
+        }
+
+        .first_row_groups {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            width: 510px;
+            height: 50px;
+
+        }
+
+        .third_row_groups {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            width: 550px;
+            height: 50px;
+
+        }
+
+        .element_s {
+            display: flex;
+            width: 170px;
+            height: 50px;
+            text-align: left;
+            line-height: 50px;
+            font-size: 16px;
+            font-family: Montserrat;
+        }
+
+        .element_sb {
+            display: flex;
+            width: 210px;
+            height: 50px;
+            text-align: left;
+            line-height: 50px;
+            font-size: 16px;
+            font-family: Montserrat;
+        }
+
+        .color_Nonmetal {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(77, 136, 111, 0.8);
+            box-shadow: 1px 1px 4px rgba(77, 136, 111, 0.8);
+            border-radius: 7px;
+
+        }
+
+        .content_Nonmetal {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+
+        }
+
+        .color_Noble_Gas {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(172, 164, 175, 0.8);
+            box-shadow: 1px 1px 4px rgba(172, 164, 175, 0.8);
+            border-radius: 7px;
+
+        }
+
+        .content_Noble_Gas {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+
+        }
+
+        .color_AlkaliMetals {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(216, 185, 168, 0.8);
+            box-shadow: 1px 1px 4px rgba(216, 185, 168, 0.8);
+            border-radius: 7px;
+        }
+
+        .content_AlkaliMetals {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+        }
+
+        .color_AlkaliEarths {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(181, 126, 173, 0.8);
+            box-shadow: 1px 1px 4px rgba(181, 126, 173, 0.8);
+            border-radius: 7px;
+        }
+
+        .content_AlkaliEarths {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+        }
+
+        .color_Metalloid {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(254, 198, 81, 0.8);
+            box-shadow: 1px 1px 4px rgba(254, 198, 81, 0.8);
+            border-radius: 7px;
+        }
+
+        .content_Metalloid {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+        }
+
+        .color_Haiogen {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(218, 125, 140, 0.8);
+            box-shadow: 1px 1px 4px rgba(218, 125, 140, 0.8);
+            border-radius: 7px;
+        }
+
+        .content_Haiogen {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+        }
+
+        .color_TransitionMetals {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(91, 194, 202, 0.8);
+            box-shadow: 1px 1px 4px rgba(91, 194, 202, 0.8);
+            border-radius: 7px;
+        }
+
+        .content_TransitionMetals {
+            display: inline-block;
+            width: auto;
+            height: 50px;
+        }
+
+        .color_Metal {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(231, 118, 45, 0.8);
+            box-shadow: 1px 1px 4px rgba(231, 118, 45, 0.8);
+            border-radius: 7px;
+        }
+
+        .content_Metal {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+        }
+
+        .color_Lanthanides {
+            margin: 10px 15px;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(175, 198, 55, 0.8);
+            box-shadow: 1px 1px 4px rgba(175, 198, 55, 0.8);
+            border-radius: 7px;
+        }
+
+        .content_Lanthanides {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+        }
+
+
+
+        /* 
+        .element-group-wrapper-follow {
+            position: absolute;
+            top: 10px;
+            left: 550px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        } */
+
+        .nspecies-dropdown {
+            font-weight: 700;
+            height: 22px;
+            min-width: 33%;
+            text-align: center;
+        }
+
+        .number_control label {
+            display: block;
+            font-weight: 700;
+            margin-left: 45px;
+            margin-top: 5px;
+            width: 70%;
+            text-align: center;
+            background-color: white;
+        }
+
+        .nspecies-selector-wrapper {
+            display: flex;
+            margin-top: 5px;
+            justify-content: space-evenly;
+        }
+
+        /* 搜索条目 */
+        .data_list {
+            display: block;
+        }
+
+
+        .hanger {
+            display: flex;
+            /* width: 1200px; */
+            height: 50px;
+            margin-top: 5px;
+            /* text-align: center; */
+            /* align-items: center; */
+            /* background-color: #1f96f8; */
+            flex-direction: row;
+            justify-content: space-around;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, .2);
+
+        }
+
+        .hanger p {
+            width: 300px;
+            height: 50px;
+            /* margin-top: 5px; */
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+            background-color: white;
+        }
+
+
+        /* 分页器 */
+        .left_page {
+            width: 100px;
+            height: 40px;
+            margin-top: 5px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+            background-color: white;
+            border: 2px solid #888;
+        }
+
+        .right_page {
+            width: 100px;
+            height: 40px;
+            margin-top: 5px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+            background-color: white;
+            border: 2px solid #888;
+
+        }
+
+        .number_pager {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 600px;
+            height: 40px;
+            margin-top: 5px;
+            background-color: white;
+            border: 2px solid #888;
+
+        }
+
+        .i_page {
+            width: 30px;
+            height: 30px;
+            margin: 5px 10px;
+            text-align: center;
+            line-height: 30px;
+            background-color: #eaeaea;
+
+        }
+
+        .j_page {
+            width: 30px;
+            height: 30px;
+            margin: 5px 10px;
+            text-align: center;
+            line-height: 30px;
+            background-color: #eaeaea;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <!-- <div class="nav">
+            <ul>
+                <li>HOME</li>
+                <li>CONSORTIUM</li>
+                <li>SEMINARS</li>
+                <li>SCHOOLS</li>
+            </ul>
+            <a href="../index.html" style="color:#000; text-decoration: none">HOME</a>
+        </div> -->
+    </div>
+    <div class="main">
+        <div class="search_nav">
+            <input type="text" value="" id="search_text">
+            <input type="button" value="Search" id="search_button">
+            <div class="number_control">
+                <label for="nspecies_selector"># of species</label>
+                <div class="nspecies-selector-wrapper">
+                    <select class="nspecies-dropdown" id="nspecies_selector">
+                        <option value="equal" selected="selected">&lt=</option>
+                    </select>
+                    <select class="nspecies-dropdown" id="nspecies_equal">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <ul>
+                <li id="element_1 " class="NonMetals">
+                    <div class="element-Z ">1</div>
+                    <div class="element-symbol ">H</div>
+                    <div class="element-name ">Hydrogen</div>
+                </li>
+                <li id="element_2" class="Noble_Gas">
+                    <div class="element-Z ">2</div>
+                    <div class="element-symbol">He</div>
+                    <div class="element-name">Helium</div>
+                </li>
+            </ul>
+            <!-- 第二行 -->
+            <ul>
+                <li id="element_3" class="AlkaliMetals">
+                    <div class="element-Z ">3</div>
+                    <div class="element-symbol">Li</div>
+                    <div class="element-name">Lithium</div>
+                </li>
+                <li id="element_4" class="AlkaliEarths">
+                    <div class="element-Z ">4</div>
+                    <div class="element-symbol">Be</div>
+                    <div class="element-name">Beryllium</div>
+                </li>
+                <li id="element_5" class="Metalloid">
+                    <div class="element-Z ">5</div>
+                    <div class="element-symbol">B</div>
+                    <div class="element-name">Boron</div>
+                </li>
+                <li id="element_6" class="NonMetals">
+                    <div class="element-Z ">6</div>
+                    <div class="element-symbol">C</div>
+                    <div class="element-name">Carbon</div>
+                </li>
+                <li id="element_7" class="NonMetals">
+                    <div class="element-Z ">7</div>
+                    <div class="element-symbol">N</div>
+                    <div class="element-name">Nitrogen</div>
+                </li>
+                <li id="element_8" class="NonMetals">
+                    <div class="element-Z ">8</div>
+                    <div class="element-symbol">O</div>
+                    <div class="element-name">Oxygen</div>
+                </li>
+                <li id="element_9" class="Haiogen">
+                    <div class="element-Z ">9</div>
+                    <div class="element-symbol">F</div>
+                    <div class="element-name">Fluorine</div>
+                </li>
+                <li id="element_10" class="Noble_Gas">
+                    <div class="element-Z ">10</div>
+                    <div class="element-symbol">Ne</div>
+                    <div class="element-name">Neon</div>
+                </li>
+            </ul>
+            <!-- 第三行 -->
+            <ul>
+                <li id="element_11" class="AlkaliMetals">
+                    <div class="element-Z ">11</div>
+                    <div class="element-symbol">Na</div>
+                    <div class="element-name">Sodium</div>
+                </li>
+                <li id="element_12" class="AlkaliEarths">
+                    <div class="element-Z ">12</div>
+                    <div class="element-symbol">Mg</div>
+                    <div class="element-name">Magnesium</div>
+                </li>
+                <li id="element_13" class="Metals">
+                    <div class="element-Z ">13</div>
+                    <div class="element-symbol">Al</div>
+                    <div class="element-name">Aluminum</div>
+                </li>
+                <li id="element_14" class="Metalloid">
+                    <div class="element-Z ">14</div>
+                    <div class="element-symbol">Si</div>
+                    <div class="element-name">Silicon</div>
+                </li>
+                <li id="element_15" class="NonMetals">
+                    <div class="element-Z ">15</div>
+                    <div class="element-symbol">P</div>
+                    <div class="element-name">Phosphorus</div>
+                </li>
+                <li id="element_16" class="NonMetals">
+                    <div class="element-Z ">16</div>
+                    <div class="element-symbol">S</div>
+                    <div class="element-name">Sulfur</div>
+                </li>
+                <li id="element_17" class="Haiogen">
+                    <div class="element-Z ">17</div>
+                    <div class="element-symbol">Cl</div>
+                    <div class="element-name">Chlorine</div>
+                </li>
+                <li id="element_18" class="Noble_Gas">
+                    <div class="element-Z ">18</div>
+                    <div class="element-symbol">Ar</div>
+                    <div class="element-name">Argon</div>
+                </li>
+            </ul>
+            <!-- 第四行 -->
+            <ul>
+                <li id="element_19" class="AlkaliMetals">
+                    <div class="element-Z ">19</div>
+                    <div class="element-symbol">K</div>
+                    <div class="element-name">Potassium</div>
+                </li>
+                <li id="element_20" class="AlkaliEarths">
+                    <div class="element-Z ">20</div>
+                    <div class="element-symbol">Ca</div>
+                    <div class="element-name">Calcium</div>
+                </li>
+                <li id="element_21" class="TransitionMetals">
+                    <div class="element-Z ">21</div>
+                    <div class="element-symbol">Sc</div>
+                    <div class="element-name">Scandium</div>
+                </li>
+                <li id="element_22" class="TransitionMetals">
+                    <div class="element-Z ">22</div>
+                    <div class="element-symbol">Ti</div>
+                    <div class="element-name">Titanium</div>
+                </li>
+                <li id="element_23" class="TransitionMetals">
+                    <div class="element-Z ">23</div>
+                    <div class="element-symbol">V</div>
+                    <div class="element-name">Vanadium</div>
+                </li>
+                <li id="element_24" class="TransitionMetals">
+                    <div class="element-Z ">24</div>
+                    <div class="element-symbol">Cr</div>
+                    <div class="element-name">Chromium</div>
+                </li>
+                <li id="element_25" class="TransitionMetals">
+                    <div class="element-Z ">25</div>
+                    <div class="element-symbol">Mn</div>
+                    <div class="element-name">Manganese</div>
+                </li>
+                <li id="element_26" class="TransitionMetals">
+                    <div class="element-Z ">26</div>
+                    <div class="element-symbol">Fe</div>
+                    <div class="element-name">Iron</div>
+                </li>
+                <li id="element_27" class="TransitionMetals">
+                    <div class="element-Z ">27</div>
+                    <div class="element-symbol">Co</div>
+                    <div class="element-name">Cobalt</div>
+                </li>
+                <li id="element_28" class="TransitionMetals">
+                    <div class="element-Z ">28</div>
+                    <div class="element-symbol">Ni</div>
+                    <div class="element-name">Nickel</div>
+                </li>
+                <li id="element_29" class="TransitionMetals">
+                    <div class="element-Z ">29</div>
+                    <div class="element-symbol">Cu</div>
+                    <div class="element-name">Copper</div>
+                </li>
+                <li id="element_30" class="TransitionMetals">
+                    <div class="element-Z ">30</div>
+                    <div class="element-symbol">Zn</div>
+                    <div class="element-name">Zinc</div>
+                </li>
+                <li id="element_31" class="Metals">
+                    <div class="element-Z ">31</div>
+                    <div class="element-symbol">Ga</div>
+                    <div class="element-name">Gallium</div>
+                </li>
+                <li id="element_32" class="Metalloid">
+                    <div class="element-Z ">32</div>
+                    <div class="element-symbol">Ge</div>
+                    <div class="element-name">Germanium</div>
+                </li>
+                <li id="element_33" class="Metalloid">
+                    <div class="element-Z ">33</div>
+                    <div class="element-symbol">As</div>
+                    <div class="element-name">Arsenic</div>
+                </li>
+                <li id="element_34" class="NonMetals">
+                    <div class="element-Z">34</div>
+                    <div class="element-symbol">Se</div>
+                    <div class="element-name">Selenium</div>
+                </li>
+                <li id="element_35" class="Haiogen">
+                    <div class="element-Z ">35</div>
+                    <div class="element-symbol">Br</div>
+                    <div class="element-name">Bromine</div>
+                </li>
+                <li id="element_36" class="Noble_Gas">
+                    <div class="element-Z ">36</div>
+                    <div class="element-symbol">Kr</div>
+                    <div class="element-name">Krypton</div>
+                </li>
+            </ul>
+            <!-- 第五行 -->
+            <ul>
+                <li id="element_37" class="AlkaliMetals">
+                    <div class="element-Z ">37</div>
+                    <div class="element-symbol">Rb</div>
+                    <div class="element-name">Rubidium</div>
+                </li>
+                <li id="element_38" class="AlkaliEarths">
+                    <div class="element-Z ">38</div>
+                    <div class="element-symbol">Sr</div>
+                    <div class="element-name">Strontium</div>
+                </li>
+                <li id="element_39" class="TransitionMetals">
+                    <div class="element-Z ">39</div>
+                    <div class="element-symbol">Y</div>
+                    <div class="element-name">Yttrium</div>
+                </li>
+                <li id="element_40" class="TransitionMetals">
+                    <div class="element-Z ">40</div>
+                    <div class="element-symbol">Zr</div>
+                    <div class="element-name">Zirconium</div>
+                </li>
+                <li id="element_41" class="TransitionMetals">
+                    <div class="element-Z ">41</div>
+                    <div class="element-symbol">Nb</div>
+                    <div class="element-name">Niobium</div>
+                </li>
+                <li id="element_42" class="TransitionMetals">
+                    <div class="element-Z ">42</div>
+                    <div class="element-symbol">Mo</div>
+                    <div class="element-name">Molybdenum</div>
+                </li>
+                <li id="element_43" class="TransitionMetals">
+                    <div class="element-Z ">43</div>
+                    <div class="element-symbol">Tc</div>
+                    <div class="element-name">Technetium</div>
+                </li>
+                <li id="element_44" class="TransitionMetals">
+                    <div class="element-Z ">44</div>
+                    <div class="element-symbol">Ru</div>
+                    <div class="element-name">Ruthenium</div>
+                </li>
+                <li id="element_45" class="TransitionMetals">
+                    <div class="element-Z ">45</div>
+                    <div class="element-symbol">Rh</div>
+                    <div class="element-name">Rhodium</div>
+                </li>
+                <li id="element_46" class="TransitionMetals">
+                    <div class="element-Z ">46</div>
+                    <div class="element-symbol">Pd</div>
+                    <div class="element-name">Palladium</div>
+                </li>
+                <li id="element_47" class="TransitionMetals">
+                    <div class="element-Z ">47</div>
+                    <div class="element-symbol">Ag</div>
+                    <div class="element-name">Silver</div>
+                </li>
+                <li id="element_48" class="TransitionMetals">
+                    <div class="element-Z">48</div>
+                    <div class="element-symbol">Cd</div>
+                    <div class="element-name">Cadmium</div>
+                </li>
+                <li id="element_49" class="Metals">
+                    <div class="element-Z ">49</div>
+                    <div class="element-symbol">In</div>
+                    <div class="element-name">Indium</div>
+                </li>
+                <li id="element_50" class="Metals">
+                    <div class="element-Z">50</div>
+                    <div class="element-symbol">Sn</div>
+                    <div class="element-name">Tin</div>
+                </li>
+                <li id="element_51" class="Metalloid">
+                    <div class="element-Z ">51</div>
+                    <div class="element-symbol">Sb</div>
+                    <div class="element-name">Antimony</div>
+                </li>
+                <li id="element_52" class="Metalloid">
+                    <div class="element-Z ">52</div>
+                    <div class="element-symbol">Te</div>
+                    <div class="element-name">Tellurium</div>
+                </li>
+                <li id="element_53" class="Haiogen">
+                    <div class="element-Z ">53</div>
+                    <div class="element-symbol">I</div>
+                    <div class="element-name">Iodine</div>
+                </li>
+                <li id="element_54" class="Noble_Gas">
+                    <div class="element-Z ">54</div>
+                    <div class="element-symbol">Xe</div>
+                    <div class="element-name">Xenon</div>
+                </li>
+            </ul>
+            <!-- 第六行 -->
+            <ul>
+                <li id="element_55" class="AlkaliMetals">
+                    <div class="element-Z ">55</div>
+                    <div class="element-symbol">Cs</div>
+                    <div class="element-name">Cesium</div>
+                </li>
+                <li id="element_56" class="AlkaliEarths">
+                    <div class="element-Z ">56</div>
+                    <div class="element-symbol">Ba</div>
+                    <div class="element-name">Barium</div>
+                </li>
+                <li id="element_Lanthanides">
+                    <div class="element-Z ">57 - 71</div>
+                    <div class="element-symbol">*</div>
+                    <div class="element-name">Lanthanides</div>
+                </li>
+                <li id="element_72" class="TransitionMetals">
+                    <div class="element-Z ">72</div>
+                    <div class="element-symbol">Hf</div>
+                    <div class="element-name">Hafnium</div>
+                </li>
+                <li id="element_73" class="TransitionMetals">
+                    <div class="element-Z ">73</div>
+                    <div class="element-symbol">Ta</div>
+                    <div class="element-name">Tantalum</div>
+                </li>
+                <li id="element_74" class="TransitionMetals">
+                    <div class="element-Z ">74</div>
+                    <div class="element-symbol">W</div>
+                    <div class="element-name">Tungsten</div>
+                </li>
+                <li id="element_75" class="TransitionMetals">
+                    <div class="element-Z">75</div>
+                    <div class="element-symbol">Re</div>
+                    <div class="element-name">Rhenium</div>
+                </li>
+                <li id="element_76" class="TransitionMetals">
+                    <div class="element-Z">76</div>
+                    <div class="element-symbol">Os</div>
+                    <div class="element-name">Osmium</div>
+                </li>
+                <li id="element_77" class="TransitionMetals">
+                    <div class="element-Z ">77</div>
+                    <div class="element-symbol">Ir</div>
+                    <div class="element-name">Iridium</div>
+                </li>
+                <li id="element_78" class="TransitionMetals">
+                    <div class="element-Z ">78</div>
+                    <div class="element-symbol">Pt</div>
+                    <div class="element-name">Platinum</div>
+                </li>
+                <li id="element_79" class="TransitionMetals">
+                    <div class="element-Z ">79</div>
+                    <div class="element-symbol">Au</div>
+                    <div class="element-name">Gold</div>
+                </li>
+                <li id="element_80" class="TransitionMetals">
+                    <div class="element-Z ">80</div>
+                    <div class="element-symbol">Hg</div>
+                    <div class="element-name">Mercury</div>
+                </li>
+                <li id="element_81" class="Metals">
+                    <div class="element-Z ">81</div>
+                    <div class="element-symbol">Tl</div>
+                    <div class="element-name">Thallium</div>
+                </li>
+                <li id="element_82" class="Metals">
+                    <div class="element-Z ">82</div>
+                    <div class="element-symbol">Pb</div>
+                    <div class="element-name">Lead</div>
+                </li>
+                <li id="element_83" class="Metals">
+                    <div class="element-Z ">83</div>
+                    <div class="element-symbol">Bi</div>
+                    <div class="element-name">Bismuth</div>
+                </li>
+                <li id="element_84" class="Metalloid">
+                    <div class="element-Z ">84</div>
+                    <div class="element-symbol">Po</div>
+                    <div class="element-name">Polonium</div>
+                </li>
+                <li id="element_85" class="Haiogen">
+                    <div class="element-Z ">85</div>
+                    <div class="element-symbol">At</div>
+                    <div class="element-name">Astatine</div>
+                </li>
+                <li id="element_86" class="Noble_Gas">
+                    <div class="element-Z ">86</div>
+                    <div class="element-symbol">Rn</div>
+                    <div class="element-name">Radon</div>
+                </li>
+            </ul>
+            <!-- 第七行 -->
+            <ul>
+                <li id="element_57" class="Lanthanides">
+                    <div class="element-Z">57</div>
+                    <div class="element-symbol">La</div>
+                    <div class="element-name">Lanthanum</div>
+                </li>
+                <li id="element_58" class="Lanthanides">
+                    <div class="element-Z ">58</div>
+                    <div class="element-symbol">Ce</div>
+                    <div class="element-name">Cerium</div>
+                </li>
+                <li id="element_59" class="Lanthanides">
+                    <div class="element-Z ">59</div>
+                    <div class="element-symbol">Pr</div>
+                    <div class="element-name">Praseodymium</div>
+                </li>
+                <li id="element_60" class="Lanthanides">
+                    <div class="element-Z ">60</div>
+                    <div class="element-symbol">Nd</div>
+                    <div class="element-name">Neodymium</div>
+                </li>
+                <li id="element_61" class="Lanthanides">
+                    <div class="element-Z ">61</div>
+                    <div class="element-symbol">Pm</div>
+                    <div class="element-name">Promethium</div>
+                </li>
+                <li id="element_62" class="Lanthanides">
+                    <div class="element-Z ">62</div>
+                    <div class="element-symbol">Sm</div>
+                    <div class="element-name">Samarium</div>
+                </li>
+                <li id="element_63" class="Lanthanides">
+                    <div class="element-Z ">63</div>
+                    <div class="element-symbol">Eu</div>
+                    <div class="element-name">Europium</div>
+                </li>
+                <li id="element_64" class="Lanthanides">
+                    <div class="element-Z ">64</div>
+                    <div class="element-symbol">Gd</div>
+                    <div class="element-name">Gadolinium</div>
+                </li>
+                <li id="element_65" class="Lanthanides">
+                    <div class="element-Z ">65</div>
+                    <div class="element-symbol">Tb</div>
+                    <div class="element-name">Terbium</div>
+                </li>
+                <li id="element_66" class="Lanthanides">
+                    <div class="element-Z ">66</div>
+                    <div class="element-symbol">Dy</div>
+                    <div class="element-name">Dysprosium</div>
+                </li>
+                <li id="element_67" class="Lanthanides">
+                    <div class="element-Z ">67</div>
+                    <div class="element-symbol">Ho</div>
+                    <div class="element-name">Holmium</div>
+                </li>
+                <li id="element_68" class="Lanthanides">
+                    <div class="element-Z ">68</div>
+                    <div class="element-symbol">Er</div>
+                    <div class="element-name">Erbium</div>
+                </li>
+                <li id="element_69" class="Lanthanides">
+                    <div class="element-Z ">69</div>
+                    <div class="element-symbol">Tm</div>
+                    <div class="element-name">Thulium</div>
+                </li>
+                <li id="element_70" class="Lanthanides">
+                    <div class="element-Z">70</div>
+                    <div class="element-symbol">Yb</div>
+                    <div class="element-name">Ytterbium</div>
+                </li>
+                <li id="element_71" class="Lanthanides">
+                    <div class="element-Z ">71</div>
+                    <div class="element-symbol">Lu</div>
+                    <div class="element-name">Lutetium</div>
+                </li>
+            </ul>
+            <div class="element-groups-wrapper">
+                <div class="categroy">Categroy</div>
+                <div class="first_row_groups">
+                    <div class="element_s">
+                        <div class="color_Nonmetal"></div>
+                        <div class="content_Nonmetal">Nonmetal</div>
+                    </div>
+                    <div class="element_s">
+                        <div class="color_Noble_Gas"></div>
+                        <div class="content_Noble_Gas">Noble Gas</div>
+                    </div>
+                    <div class="element_s">
+                        <div class="color_AlkaliMetals"></div>
+                        <div class="content_AlkaliMetals">Alkali Metal</div>
+                    </div>
+                </div>
+                <div class="first_row_groups">
+                    <div class="element_s">
+                        <div class="color_AlkaliEarths"></div>
+                        <div class="content_AlkaliEarths">Alkali Earth</div>
+                    </div>
+                    <div class="element_s">
+                        <div class="color_Metalloid"></div>
+                        <div class="content_Metalloid">Metalloid</div>
+                    </div>
+                    <div class="element_s">
+                        <div class="color_Haiogen"></div>
+                        <div class="content_Haiogen">Haiogen</div>
+                    </div>
+                </div>
+                <div class="third_row_groups">
+                    <div class="element_s">
+                        <div class="color_Lanthanides"></div>
+                        <div class="content_Lanthanides">Lanthanide</div>
+                    </div>
+
+                    <div class="element_s">
+                        <div class="color_Metal"></div>
+                        <div class="content_Metal">Metal</div>
+                    </div>
+                    <div class="element_sb">
+                        <div class="color_TransitionMetals"></div>
+                        <div class="content_TransitionMetals">Transition Metal</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="element-group-wrapper-follow"></div>
+        </div>
+    </div>
+    <!-- 搜索内容展示标题 -->
+    <div class="data_list">
+        <div class="title_entry hanger">
+            <p class="search_entry">Entry</p>
+            <p class="mp_index">mp-index</p>
+            <p class="space_group">Space Group</p>
+            <p class="bandgap">Bandgap</p>
+            <p class="ZT">ZT</p>
+        </div>
+        <div class="data_tem_list">
+
+        </div>
+
+    </div>
+    <div class="pager hanger">
+        <div class="left_page">Last Page</div>
+        <div class="number_pager">
+
+        </div>
+        <div class="right_page">Next Page</div>
+    </div>
+    <script src="../js/data_materials_tem.js"></script>
+    <script src="../js/search.js"></script>
+
+    <div class="footer"></div>
+</body>
+
+</html>
