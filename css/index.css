@@ -124,7 +124,7 @@
 
     position: absolute;
     top: 350px;
-    left: 30%;
+    left: 15%;
     width: 70%;
     height: 700px;
     background-color: #F6F6F6;
@@ -135,7 +135,7 @@
 
 .describe {
     display: block;
-    width: 95%;
+    width: 50%;
     height: 150px;
     margin: 20px auto;
     font-size: 1.25rem;
