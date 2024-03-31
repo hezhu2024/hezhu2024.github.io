@@ -64,7 +64,7 @@
     display: block;
     /* position: relative; */
     /* width: 1500px; */
-    height: 400px;
+    height: 700px;
     margin: 0;
     padding: 0;
     background: url(../img/2017wzu.jpg);
@@ -123,11 +123,11 @@
 .main {
 
     position: absolute;
-    top: 400px;
+    top: 700px;
    /* left: 15%;*/
-    left: 500px;
-    width: 50%;
-    height: 700px;
+    left: 700px;
+    width: 60%;
+    height: 600px;
     background-color: #F6F6F6;
     /* border: 1px solid #666; */
     border-radius: 32px 32px 32px 32px;
