@@ -72,20 +72,73 @@
     background-size: cover;
 }
 
+
 .container_foot {
     position: relative;
     top: 700px
 }
 
 .footer {
-    /* width: 400px; */
-    height: 50px;
-    line-height: 50px;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    /* width: 220px; */
+    height: 60px;
+    line-height: 60px;
+    font-size: 15px;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: Montserrat;
     text-align: center;
+    /* background-color: #F6F6F6; */
+
     /* margin-left: 700px; */
 }
+
+.wzulogo {
+    display: inline-block;
+    position: absolute;
+    left: 20%;
+    width: 220px;
+    height: 60px;
+    background: url(../img/logo.png);
+    background-color: rgba(132, 206, 231, 1);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
+    border-radius: 4px 4px 4px 4px;
+
+}
+
+.information_wzu {
+    display: inline-block;
+    position: absolute;
+    left: 35%;
+}
+
+.contributor {
+    height: 30px;
+    text-align: left;
+    line-height: 30px;
+
+}
+
+.acknowledge {
+    height: 30px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.copyright {
+    position: relative;
+    top: 700px;
+    height: 40px;
+    line-height: 40px;
+    /* background-color: #F6F6F6; */
+    text-align: center;
+}
+
+.footwhite {
+    position: relative;
+    top: 750px;
+    height: 10px;
+    background-color: white;
+}
+
 
 /* .header {} */
 
