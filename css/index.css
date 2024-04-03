@@ -64,14 +64,13 @@
     display: block;
     /* position: relative; */
     /* width: 1500px; */
-    height: 700px;
+    height: 400px;
     margin: 0;
     padding: 0;
     background: url(../img/2017wzu.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 
 .container_foot {
     position: relative;
@@ -139,7 +138,6 @@
     background-color: white;
 }
 
-
 /* .header {} */
 
 /* .nav {
@@ -176,11 +174,10 @@
 .main {
 
     position: absolute;
-    top: 700px;
-   /* left: 15%;*/
-    left: 700px;
-    width: 60%;
-    height: 600px;
+    top: 350px;
+    left: 15%;
+    width: 70%;
+    height: 700px;
     background-color: #F6F6F6;
     /* border: 1px solid #666; */
     border-radius: 32px 32px 32px 32px;
@@ -189,8 +186,7 @@
 
 .describe {
     display: block;
-    width: 70%;
-    left: 300px;
+    width: 95%;
     height: 150px;
     margin: 20px auto;
     font-size: 1.25rem;
