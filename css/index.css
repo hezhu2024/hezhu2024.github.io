@@ -94,7 +94,7 @@
 .wzulogo {
     display: inline-block;
 
-    left: 20%;
+    margin-left: 20%;
     width: 220px;
     height: 60px;
     background: url(../img/logo.png);
