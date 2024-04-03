@@ -104,6 +104,12 @@
     background-size: cover;
 }
 
+.airbtwc {
+    display: inline-block;
+    width: 20px;
+    
+}
+
 .information_wzu {
     display: inline-block;
     margin-right: 15%;
