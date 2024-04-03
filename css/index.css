@@ -93,9 +93,9 @@
 .wzulogo {
     display: inline-block;
     position: absolute;
-    left: 20%;
-    width: 12%;
-    height: 100%;
+    left: 400px;
+    width: 220px;
+    height: 60px;
     background: url(../img/logo.png);
     background-color: rgba(132, 206, 231, 1);
     box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
@@ -106,7 +106,7 @@
 .information_wzu {
     display: inline-block;
     position: absolute;
-    left: 35%;
+    left: 700px;
 }
 
 .contributor {
