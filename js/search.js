@@ -148,7 +148,7 @@ search_button.onclick = function () {
         let chosed_a_i = chosed_a[i]
         chosed_a_i.addEventListener('click', function () {
             const data_chosed = datalist_tem_class[i_now_page - 1][i]
-            let str_data_chosed = `js/materials/${data_chosed.id}/data_materials.js`
+            let str_data_chosed = `js/materials_rev/${data_chosed.id}/data_materials.js`
             localStorage.setItem("myData", JSON.stringify(str_data_chosed))
 
 
@@ -307,7 +307,7 @@ search_button.onclick = function () {
             let chosed_a_i = chosed_a[i]
             chosed_a_i.addEventListener('click', function () {
                 const data_chosed = datalist_tem_class[i_now_page - 1][i]
-                let str_data_chosed = `js/materials/${data_chosed.id}/data_materials.js`
+                let str_data_chosed = `js/materials_rev/${data_chosed.id}/data_materials.js`
                 localStorage.setItem("myData", JSON.stringify(str_data_chosed))
 
             })
@@ -336,7 +336,7 @@ search_button.onclick = function () {
             let chosed_a_i = chosed_a[i]
             chosed_a_i.addEventListener('click', function () {
                 const data_chosed = datalist_tem_class[i_now_page - 1][i]
-                let str_data_chosed = `js/materials/${data_chosed.id}/data_materials.js`
+                let str_data_chosed = `js/materials_rev/${data_chosed.id}/data_materials.js`
                 localStorage.setItem("myData", JSON.stringify(str_data_chosed))
 
             })
