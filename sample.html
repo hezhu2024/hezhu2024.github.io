@@ -463,6 +463,7 @@
                 <div class="electronic_thermal_conductivity_average_title title">Electronic Thermal Conductivity :</div>
                 <div class="BE_title title">BE max :</div>
                 <div class="ZT_title title">ZT max :</div>
+                <div class="stable_title title">Stable :</div>
                 <div class="title"></div>
             </div>
             <div class="second_detail">2. Result Detail</div>
@@ -691,6 +692,12 @@
                         document.write(`<span class="ZT_content content">${data_material.zt_max.toFixed(8)}</span>`)
                     </script>
                 </div>
+                <div class="Stable one_column">
+                    <!-- <span class=" title"></span> -->
+                    <script>
+                        document.write(`<span class="Stable_content content">${data_material.sign_stable}</span>`)
+                    </script>
+                </div>    
 
             </div>
             <div class="calculation_detail">
